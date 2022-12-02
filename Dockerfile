@@ -39,7 +39,7 @@ RUN export LANG=en_US.UTF-8 \
 FROM php:8.1.10-fpm
 
 # Arguments defined in docker-compose.yml
-ARG user
+ARG user=khoa
 ARG uid=123
 
 # Install system dependencies
