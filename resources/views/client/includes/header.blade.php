@@ -11,8 +11,8 @@
 
                 <li class="nav-item"><a href="{{ route('home-page') }}" class="nav-link">Trang chủ</a></li>
                 <li class="nav-item"><a href="{{ route('menu-page') }}" class="nav-link">Thực đơn</a></li>
-                <li class="nav-item"><a href="" class="nav-link">Dịch vụ</a></li>
-                <li class="nav-item"><a href="" class="nav-link">Về chúng tôi</a></li>
+                <li class="nav-item"><a href="{{ route('service-page') }}" class="nav-link">Dịch vụ</a></li>
+                <li class="nav-item"><a href="{{ route('about-page') }}" class="nav-link">Về chúng tôi</a></li>
                 @guest
                 {{-- {{ route('login') }} --}}
                     <li class="nav-item">

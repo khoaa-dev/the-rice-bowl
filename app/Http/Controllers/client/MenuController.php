@@ -15,7 +15,7 @@ class MenuController extends Controller
     {
         $foods = Food::all()->take(6);
         $menus = Menu::all()->take(6);
-        $restaurant = Restaurant::findOrFail(1);
+        $restaurant = Restaurant::find(1);
         foreach ($menus as $menu) {
             $menu->menuFoods = MenuFood::Where('menuId', $menu->id)->get();
             foreach ($menu->menuFoods as $mf) {

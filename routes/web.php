@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\client\HomeController;
 use App\Http\Controllers\client\MenuController;
+use App\Http\Controllers\client\ServiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,3 +19,7 @@ use App\Http\Controllers\client\MenuController;
 Route::get('/home', [HomeController::class, 'index'])->name('home-page');
 
 Route::get('/menu', [MenuController::class, 'index'])->name('menu-page');
+
+Route::get('/service', [ServiceController::class, 'index'])->name('service-page');
+
+Route::get('/about', [HomeController::class, 'renderAboutPage'])->name('about-page');

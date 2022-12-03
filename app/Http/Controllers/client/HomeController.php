@@ -12,4 +12,8 @@ class HomeController extends Controller
         $restaurant = Restaurant::find(1);
         return view('client.pages.home', compact('restaurant'));
     }
+
+    public function renderAboutPage() {
+        return view('client.pages.about');
+    }
 }

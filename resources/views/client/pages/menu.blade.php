@@ -7,7 +7,7 @@
 
 @section('content')
 
-    <section class="home-slider owl-carousel img" style="background-image: url({{ asset($restaurant->menu_banner) }});">
+    <section class="home-slider owl-carousel img" style="background-image: url(public/front-end/images/anhFood1.jpg);">
 
         <div class="slider-item" style="background-image: url({{ asset($restaurant->menu_banner) }});">
             <div class="overlay"></div>
