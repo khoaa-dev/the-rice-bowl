@@ -1,0 +1,11 @@
+databases:
+  - name: thericebowl-db
+    databaseName: DB_DATABASE
+    user: DB_USERNAME
+    postgresMajorVersion: 14
+
+services:
+  - type: web
+    name: thericebowl-app
+    env: docker
+    dockerfilePath: ./Dockerfile
