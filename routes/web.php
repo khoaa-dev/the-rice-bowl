@@ -16,10 +16,16 @@ use App\Http\Controllers\client\ServiceController;
 |
 */
 
-Route::get('/home', [HomeController::class, 'index'])->name('home-page');
+Route::get('/', [HomeController::class, 'index'])->name('home-page');
 
 Route::get('/menu', [MenuController::class, 'index'])->name('menu-page');
 
 Route::get('/service', [ServiceController::class, 'index'])->name('service-page');
 
 Route::get('/about', [HomeController::class, 'renderAboutPage'])->name('about-page');
+
+Route::get('/login', [HomeController::class, 'renderLoginPage'])->name('login-page');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -1,4 +1,4 @@
-@extends('client.templates.default-page')
+@extends('layouts.app')
 
 @section('css')
     <link rel="stylesheet" href="{{ asset('public/front-end/css/menu.css') }}">

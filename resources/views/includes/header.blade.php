@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light m-0 p-4" id="ftco-navbar">
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light m-0 p-4" id="ftco-navbar">
     <div class="container">
-        <a class="navbar-brand" href="{{route('home-page')}}"><span class="flaticon-pizza-1 mr-1"></span>The Rice
+        <a class="navbar-brand" href="{{route('home')}}"><span class="flaticon-pizza-1 mr-1"></span>The Rice
             Bowl<br><small>Restaurant</small></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
             aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,14 +9,14 @@
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
 
-                <li class="nav-item"><a href="{{ route('home-page') }}" class="nav-link">Trang chủ</a></li>
+                <li class="nav-item"><a href="{{ route('home') }}" class="nav-link">Trang chủ</a></li>
                 <li class="nav-item"><a href="{{ route('menu-page') }}" class="nav-link">Thực đơn</a></li>
                 <li class="nav-item"><a href="{{ route('service-page') }}" class="nav-link">Dịch vụ</a></li>
                 <li class="nav-item"><a href="{{ route('about-page') }}" class="nav-link">Về chúng tôi</a></li>
                 @guest
                 {{-- {{ route('login') }} --}}
                     <li class="nav-item">
-                        <a class="nav-link" href="">{{ __('Đăng nhập') }}</a>
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('Đăng nhập') }}</a>
                     </li>
 
                     {{-- @if (Route::has('register'))
@@ -59,8 +59,8 @@
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
                             </form>
-
-                            <form id="admin-form" action="{{ route('admin') }}" method="GET" style="display: none;">
+                            {{-- {{ route('admin') }} --}}
+                            <form id="admin-form" action="" method="GET" style="display: none;">
                                 @csrf
                             </form>
 

@@ -22,7 +22,7 @@ class MenuController extends Controller
                 $mf->food = Food::FindOrFail($mf->foodId);
             }
         }
-        return view('client.pages.menu', compact('foods', 'menus', 'restaurant'));
+        return view('pages.menu', compact('foods', 'menus', 'restaurant'));
     }
     
 }
