@@ -1,4 +1,4 @@
-@extends('client.templates.default-page')
+@extends('layouts.app')
 @section('content')
     <section class="home-slider owl-carousel img"
         style="background-image: url({{ asset('public/front-end/images/bg_1.jpg') }});">

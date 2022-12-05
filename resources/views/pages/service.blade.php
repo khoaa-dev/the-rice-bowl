@@ -1,4 +1,4 @@
-@extends('client.templates.default-page')
+@extends('layouts.app')
 @section('content')
     <section class="ftco-section ftco-services">
         <div class="overlay"></div>

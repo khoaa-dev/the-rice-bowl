@@ -10,10 +10,14 @@ class HomeController extends Controller
 {
     public function index() {
         $restaurant = Restaurant::find(1);
-        return view('client.pages.home', compact('restaurant'));
+        return view('pages.home', compact('restaurant'));
     }
 
     public function renderAboutPage() {
-        return view('client.pages.about');
+        return view('pages.about');
+    }
+
+    public function renderLoginPage() {
+        return view('pages.auth.login');
     }
 }
