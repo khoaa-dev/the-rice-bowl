@@ -36,12 +36,12 @@ class SocialController extends Controller
                 'email'    => $userInfo->email,
                 'provider' => $provider,
                 'provider_id' => $userInfo->id,
-                'username' => '',
-                'dob' => '',
-                'phone' => '',
-                'houseNumber' => '',
-                'street' => '',
-                'villageId' => '',
+                'username' => null,
+                'dob' => null,
+                'phone' => null,
+                'houseNumber' => null,
+                'street' => null,
+                'villageId' => null,
                 'roleId' => 2,
                 'avatarUrl' => $userInfo->getId() . ".jpg"
             ]);
