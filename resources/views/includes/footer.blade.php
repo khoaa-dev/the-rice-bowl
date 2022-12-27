@@ -1,10 +1,11 @@
-<footer class="ftco-footer ftco-section img">
+<footer class="ftco-footer ftco-section img" style="padding: 55px 10px 10px 10px;">
     <div class="overlay"></div>
     <div class="container">
         <div class="row mb-5">
             <div class="col-lg-3 col-md-6 mb-5 mb-md-5">
                 <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2" style="font-size: 20px; color: #f8be5f">Về chúng tôi</h2>
+                    <h2 class="ftco-heading-2" style="font-size: 20px; color: #f8be5f; font-family: 'Josefin Sans';">Về
+                        chúng tôi</h2>
                     <p style="font-size: 18px">Có thắc mắc gì hãy liên hệ liền với chúng tôi. Chúng tôi rất hân hạnh được
                         phục vụ bạn!</p>
                     <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
@@ -16,12 +17,14 @@
             </div>
             <div class="col-lg-4 col-md-6 mb-5 mb-md-5">
                 <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2" style="font-size: 20px; color: #f8be5f">Bài viết gần đây</h2>
+                    <h2 class="ftco-heading-2" style="font-size: 20px; color: #f8be5f; font-family: 'Josefin Sans';">Bài
+                        viết gần đây</h2>
                     <div class="block-21 mb-4 d-flex">
                         <a class="blog-img mr-4"
                             style="background-image: url({{ asset('public/front-end/images/anhFood1.jpg') }});"></a>
                         <div class="text">
-                            <h3 class="heading" style="font-size: 18px"><a href="#">Hãy để Rice Bowl Restaurant
+                            <h3 class="heading" style="font-size: 18px"><a href="#"
+                                    style="font-family: 'Josefin Sans';">Hãy để Rice Bowl Restaurant
                                     đánh thức vị giác bạn!</a>
                             </h3>
                             <div class="meta">
@@ -38,7 +41,8 @@
                         <a class="blog-img mr-4"
                             style="background-image: url({{ asset('public/front-end/images/anhFood2.jpg') }});"></a>
                         <div class="text">
-                            <h3 class="heading" style="font-size: 18px"><a href="#">Đầu bếp nổi tiếng tứ phương đã
+                            <h3 class="heading" style="font-size: 18px"><a href="#"
+                                    style="font-family: 'Josefin Sans';">Đầu bếp nổi tiếng tứ phương đã
                                     xuất hiện</a></h3>
                             <div class="meta">
                                 <div><a href="#" style="font-family: 'Josefin Sans';"><span
@@ -54,7 +58,8 @@
             </div>
             <div class="col-lg-2 col-md-6 mb-5 mb-md-5">
                 <div class="ftco-footer-widget mb-4 ml-md-4">
-                    <h2 class="ftco-heading-2" style="font-size: 20px; color: #f8be5f">Dịch vụ</h2>
+                    <h2 class="ftco-heading-2" style="font-size: 20px; color: #f8be5f; font-family: 'Josefin Sans';">
+                        Dịch vụ</h2>
                     <ul class="list-unstyled">
                         <li><a href="#" class="py-2 d-block"
                                 style="font-family: 'Josefin Sans'; font-size: 18px; margin-top: -7px">Cưới hỏi</a></li>
@@ -69,7 +74,8 @@
             </div>
             <div class="col-lg-3 col-md-6 mb-5 mb-md-5">
                 <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2" style="font-size: 20px; color: #f8be5f">Bạn có câu hỏi gì?</h2>
+                    <h2 class="ftco-heading-2" style="font-size: 20px; color: #f8be5f; font-family: 'Josefin Sans';">Bạn
+                        có câu hỏi gì?</h2>
                     <div class="block-23 mb-3">
                         <ul>
                             <li><span class="icon icon-map-marker"></span><span class="text"
@@ -92,8 +98,11 @@
                 <p style="font-size: 18px">
                     <script>
                         document.write(new Date().getFullYear());
-                    </script> All rights reserved | This template is made with <i class="icon-heart"
-                        aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">team MeMe</a>
+                    </script> The Rice Bowl Restaurant | Bản quyền thuộc về <i class="icon-heart"
+                        aria-hidden="true"></i><a href="https://colorlib.com" target="_blank"
+                        style="
+                        color: #f7bd5e;
+                    "> team MeMe</a>
                 </p>
             </div>
         </div>

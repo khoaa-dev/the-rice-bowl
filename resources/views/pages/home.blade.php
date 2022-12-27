@@ -47,8 +47,9 @@
                         <h1 class="mb-8">THE RICE BOWL</h1>
                         <p class="mb-4 mb-md-5">Menu đa dạng với những món ăn ngon nhất từ các đầu bếp hàng đầu thế giới.
                         </p>
-                        <p><a href="#" class="btn btn-primary p-3 px-xl-4 py-xl-3">Đặt Ngay</a> <a href="#"
-                                class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3">Xem Menu</a></p>
+                        <p><a href="#" class="btn btn-primary p-3 px-xl-4 py-xl-3" style="font-size: 20px">Đặt
+                                Ngay</a> <a href="#" class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3"
+                                style="font-size: 20px">Xem Menu</a></p>
                     </div>
                     <div class="col-md-7 ftco-animate hero text-center text-lg-end overflow-hidden">
                         <img src="{{ asset($restaurant->food_banner) }}" class="img-fluid" alt="">
@@ -120,7 +121,7 @@
         <div class="container">
             <div class="row justify-content-center mb-5 pb-3">
                 <div class="col-md-7 heading-section ftco-animate text-center">
-                    <h2 class="mb-4" style="font-size: 35px; color: #74581e">DỊCH VỤ CỦA CHÚNG TÔI</h2>
+                    <h2 class="mb-4" style="font-size: 35px; color: #a7501f">DỊCH VỤ CỦA CHÚNG TÔI</h2>
                     <p style="font-size: 22px; color: #74581e">Hãy để The Rice Bowl Restaurant đáp ứng yêu cầu và hiện thực
                         hóa ý tưởng của
                         bạn về một buổi tiệc,
@@ -134,8 +135,9 @@
                             <span class="flaticon-diet"></span>
                         </div>
                         <div class="media-body">
-                            <h3 class="heading" style="font-size: 22px; color: #a36400">CƯỚI HỎI</h3>
-                            <p style="font-size: 20px">Không gian tiệc cưới thật đẹp với vòng hoa và lễ đường, để tạo ra
+                            <h3 class="heading" style="font-size: 22px; color: #954100">CƯỚI HỎI</h3>
+                            <p style="font-size: 20px; color: #954100">Không gian tiệc cưới thật đẹp với vòng hoa và lễ
+                                đường, để tạo ra
                                 những trải nghiệm khó quên nhất.</p>
                         </div>
                     </div>
@@ -146,8 +148,9 @@
                             <span class="flaticon-bicycle"></span>
                         </div>
                         <div class="media-body">
-                            <h3 class="heading" style="font-size: 22px; color: #a36400">SINH NHẬT - THÔI NÔI</h3>
-                            <p style="font-size: 20px">Không gian ấm cúng phù hợp cho những tiệc sinh nhật dành cho các bé,
+                            <h3 class="heading" style="font-size: 22px; color: #954100">SINH NHẬT - THÔI NÔI</h3>
+                            <p style="font-size: 20px; color: #954100">Không gian ấm cúng phù hợp cho những tiệc sinh nhật
+                                dành cho các bé,
                                 cho gia đình và các cặp
                                 đôi.</p>
                         </div>
@@ -159,8 +162,9 @@
                             <span class="flaticon-pizza-1"></span>
                         </div>
                         <div class="media-body">
-                            <h3 class="heading" style="font-size: 22px; color: #a36400">TIỆC THEO CHỦ ĐỀ</h3>
-                            <p style="font-size: 20px">Hãy nói lên ý tưởng của bạn, The Rice Bowl sẽ hiện thực hóa điều ước
+                            <h3 class="heading" style="font-size: 22px; color: #954100">TIỆC THEO CHỦ ĐỀ</h3>
+                            <p style="font-size: 20px; color: #954100">Hãy nói lên ý tưởng của bạn, The Rice Bowl sẽ hiện
+                                thực hóa điều ước
                                 đó thành một không gian
                                 tuyệt đẹp.</p>
                         </div>
