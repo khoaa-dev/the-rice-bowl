@@ -43,7 +43,6 @@ services:
             - ./docker-compose/nginx/:/etc/nginx/conf.d/
         networks:
             - thericebowl
-    
 
 networks:
     thericebowl:

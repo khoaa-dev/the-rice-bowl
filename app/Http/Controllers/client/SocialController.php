@@ -18,34 +18,38 @@ class SocialController extends Controller
     public function callback($provider)
     {
         $userInfo = Socialite::driver($provider)->user(); 
-        $user = $this->createUser($userInfo, $provider); 
-        auth()->login($user); 
         
-        $fileContents = file_get_contents($userInfo->getAvatar());
-        File::put('public/front-end/images/' . $userInfo->getId() . ".jpg", $fileContents);
+        $userExist = User::where('email', '=', '' . $userInfo->email)->first();
+        
+        if ($userExist === null) {
+            $fileContents = file_get_contents($userInfo->getAvatar());
+            File::put('public/front-end/images/' . $userInfo->getId() . '.jpg', $fileContents);
+
+            $user = $this->createUser($userInfo, $provider); 
+            auth()->login($user); 
+        } else {
+            auth()->login($userExist);
+        }
+
         return redirect()->to('/home');
     }
 
     function createUser($userInfo, $provider)
     {
-        $user = User::where('provider_id', $userInfo->id)->first();
-
-        if (!$user) {
-            $user = User::create([
-                'fullName'     => $userInfo->name,
-                'email'    => $userInfo->email,
-                'provider' => $provider,
-                'provider_id' => $userInfo->id,
-                'username' => null,
-                'dob' => null,
-                'phone' => null,
-                'houseNumber' => null,
-                'street' => null,
-                'villageId' => null,
-                'roleId' => 2,
-                'avatarUrl' => $userInfo->getId() . ".jpg"
-            ]);
-        }
+        $user = User::create([
+            'fullName'     => $userInfo->name,
+            'email'    => $userInfo->email,
+            'provider' => $provider,
+            'provider_id' => $userInfo->id,
+            'username' => null,
+            'dob' => null,
+            'phone' => null,
+            'houseNumber' => null,
+            'street' => null,
+            'villageId' => null,
+            'roleId' => 2,
+            'avatarUrl' => $userInfo->getId() . '.jpg'
+        ]);
 
         return $user;
     }

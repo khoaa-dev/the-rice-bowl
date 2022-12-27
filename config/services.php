@@ -34,7 +34,8 @@ return [
     'facebook' => [
         'client_id' => env('CLIENT_ID'), //USE FROM FACEBOOK DEVELOPER ACCOUNT
         'client_secret' => env('CLIENT_SECRET'), //USE FROM FACEBOOK DEVELOPER ACCOUNT
-        'redirect' => 'https://khoaandev.site/callback/facebook'
+        // 'redirect' => 'https://khoaandev.site/callback/facebook'
+        'redirect' => 'https://the-rice-bowl.test/the-rice-bowl/callback/facebook'
     ],
 
 ];
