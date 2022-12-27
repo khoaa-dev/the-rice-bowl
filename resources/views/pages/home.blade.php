@@ -28,7 +28,6 @@
     .blue {
         color: #ffd000;
     }
-
 </style>
 
 @section('content')
@@ -69,21 +68,21 @@
                             <div class="icon"><span class="icon-phone"></span></div>
                             <div class="text">
                                 <h3>0765 700 777</h3>
-                                <p>Số điện thoại</p>
+                                <p style="color: #f7bd5e;">Số điện thoại</p>
                             </div>
                         </div>
                         <div class="col-md-4 d-flex ftco-animate">
                             <div class="icon"><span class="icon-my_location"></span></div>
                             <div class="text">
                                 <h3>123 Nguyễn Văn Linh</h3>
-                                <p>Địa chỉ</p>
+                                <p style="color: #f7bd5e;">Địa chỉ</p>
                             </div>
                         </div>
                         <div class="col-md-4 d-flex ftco-animate">
                             <div class="icon"><span class="icon-clock-o"></span></div>
                             <div class="text">
                                 <h3>Phục vụ 24/7</h3>
-                                <p>7:00 am - 10:00 pm</p>
+                                <p style="color: #f7bd5e;">7:00 am - 10:00 pm</p>
                             </div>
                         </div>
                     </div>
@@ -104,15 +103,14 @@
         </div>
         <div class="one-half ftco-animate">
             <div class="heading-section ftco-animate ">
-                <h2 class="mb-4">WELCOME TO THE RICE BOWL</h2>
+                <h2 class="mb-4">CHÀO MỪNG TỚI THE RICE BOWL</h2>
             </div>
             <div>
-                <p>Đội ngũ đầu bếp tại The Rice Bowl sáng tạo ra những thực đơn phù hợp với mọi dịp, phục vụ trong nhà hoặc
+                <p style="line-height: 30px; font-size: 17px">Đội ngũ đầu bếp tại The Rice Bowl sáng tạo ra những thực đơn
+                    phù hợp với mọi
+                    dịp, phục vụ trong nhà hoặc
                     ngoài trời, hay ngay trên bờ biển tuyệt đẹp của miền Trung Việt Nam. Các cặp đôi có thể lựa chọn thực
-                    đơn riêng hoặc buffet phong phú với phong cách Phương Tây, Á Châu, Việt Nam và món ngon địa phương. Đối
-                    với các cặp đôi tìm kiếm đám cưới mang phong cách nhiệt đới trên bờ biển tuyệt đẹp của Việt Nam, The
-                    Rice Bowl sẵn sàng để biến giấc mơ của bạn trở thành hiện thực với khung cảnh ngoạn mục cho đám cưới
-                    lãng mạn bên bờ biển.</p>
+                    đơn riêng hoặc buffet phong phú với phong cách Phương Tây, Á Châu, Việt Nam và món ngon địa phương.</p>
             </div>
         </div>
     </section>
@@ -122,8 +120,9 @@
         <div class="container">
             <div class="row justify-content-center mb-5 pb-3">
                 <div class="col-md-7 heading-section ftco-animate text-center">
-                    <h2 class="mb-4" style="font-size: 35px">DỊCH VỤ CỦA CHÚNG TÔI</h2>
-                    <p style="font-size: 22px">Hãy để The Rice Bowl Restaurant đáp ứng yêu cầu và hiện thực hóa ý tưởng của
+                    <h2 class="mb-4" style="font-size: 35px; color: #74581e">DỊCH VỤ CỦA CHÚNG TÔI</h2>
+                    <p style="font-size: 22px; color: #74581e">Hãy để The Rice Bowl Restaurant đáp ứng yêu cầu và hiện thực
+                        hóa ý tưởng của
                         bạn về một buổi tiệc,
                         một đám cưới,....</p>
                 </div>
@@ -131,24 +130,23 @@
             <div class="row">
                 <div class="col-md-4 ftco-animate">
                     <div class="media d-block text-center block-6 services">
-                        <div class="icon d-flex justify-content-center align-items-center mb-5">
+                        <div class="icon d-flex justify-content-center align-items-center mb-5" style="margin-top: 20px;">
                             <span class="flaticon-diet"></span>
                         </div>
                         <div class="media-body">
-                            <h3 class="heading" style="font-size: 22px">CƯỚI HỎI</h3>
+                            <h3 class="heading" style="font-size: 22px; color: #a36400">CƯỚI HỎI</h3>
                             <p style="font-size: 20px">Không gian tiệc cưới thật đẹp với vòng hoa và lễ đường, để tạo ra
-                                những trải nghiệm sâu sắc
-                                khó quên nhất.</p>
+                                những trải nghiệm khó quên nhất.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 ftco-animate">
                     <div class="media d-block text-center block-6 services">
-                        <div class="icon d-flex justify-content-center align-items-center mb-5">
+                        <div class="icon d-flex justify-content-center align-items-center mb-5" style="margin-top: 20px;">
                             <span class="flaticon-bicycle"></span>
                         </div>
                         <div class="media-body">
-                            <h3 class="heading" style="font-size: 22px">SINH NHẬT - THÔI NÔI</h3>
+                            <h3 class="heading" style="font-size: 22px; color: #a36400">SINH NHẬT - THÔI NÔI</h3>
                             <p style="font-size: 20px">Không gian ấm cúng phù hợp cho những tiệc sinh nhật dành cho các bé,
                                 cho gia đình và các cặp
                                 đôi.</p>
@@ -157,10 +155,11 @@
                 </div>
                 <div class="col-md-4 ftco-animate">
                     <div class="media d-block text-center block-6 services">
-                        <div class="icon d-flex justify-content-center align-items-center mb-5"><span
-                                class="flaticon-pizza-1"></span></div>
+                        <div class="icon d-flex justify-content-center align-items-center mb-5" style="margin-top: 20px;">
+                            <span class="flaticon-pizza-1"></span>
+                        </div>
                         <div class="media-body">
-                            <h3 class="heading" style="font-size: 22px">TIỆC THEO CHỦ ĐỀ</h3>
+                            <h3 class="heading" style="font-size: 22px; color: #a36400">TIỆC THEO CHỦ ĐỀ</h3>
                             <p style="font-size: 20px">Hãy nói lên ý tưởng của bạn, The Rice Bowl sẽ hiện thực hóa điều ước
                                 đó thành một không gian
                                 tuyệt đẹp.</p>
@@ -175,7 +174,7 @@
         <div class="container">
             <div class="row justify-content-center mb-5 pb-3">
                 <div class="col-md-7 heading-section ftco-animate text-center">
-                    <h2 class="mb-4">MENU ĐA DẠNG</h2>
+                    <h2 class="mb-4" style="color: #f7bd5e">MENU ĐA DẠNG</h2>
                     <p style="font-size: 22px">Hãy để The Rice Bowl Restaurant đánh thức vị giác của bạn!</p>
                 </div>
             </div>
@@ -187,8 +186,8 @@
                         <a href="#" class="img"
                             style="background-image: url({{ asset('public/front-end/images/anhDrink2.jpg') }});"></a>
                         <div class="text p-4">
-                            <h3>Cocktail dâu tây</h3>
-                            <p>Sự kết hợp hoàn hảo giữa Cocktail mát lạnh và dâu tây được nhập từ Mỹ
+                            <h3 style="color: #f7bd5e">Cocktail dâu tây</h3>
+                            <p>Sự kết hợp hoàn hảo giữa Cocktail mát lạnh và dâu tây được nhập từ Mỹ phù hợp với mùa hè
                             </p>
                             <p class="price"><span>90.000 VNĐ</span>
                         </div>
@@ -199,8 +198,9 @@
                         <a href="#" class="img"
                             style="background-image: url({{ asset('public/front-end/images/anhFood6.jpg') }});"></a>
                         <div class="text p-4">
-                            <h3>Cá ngừ phi lê</h3>
-                            <p>Món ngon nhất tại cửa hàng chính là cá ngừ phi lê ăn kết hợp với nướt sốt
+                            <h3 style="color: #f7bd5e">Cá ngừ phi lê</h3>
+                            <p>Món ngon nhất tại cửa hàng chính là cá ngừ phi lê ăn kết hợp với nướt sốt muối ớt kèm salad
+                                Mỹ
                             </p>
                             <p class="price"><span>190.000 VNĐ</span>
                         </div>
@@ -211,8 +211,8 @@
                         <a href="#" class="img"
                             style="background-image: url({{ asset('public/front-end/images/anhDrink3.jpg') }});"></a>
                         <div class="text p-4">
-                            <h3>Smoothies dứa</h3>
-                            <p>Smoothies dứa là sự kết hợp giữa chút rượu và dứa thơm từ Tây Ban Nha
+                            <h3 style="color: #f7bd5e">Smoothies dứa</h3>
+                            <p>Smoothies dứa là sự kết hợp giữa chút rượu và dứa thơm từ Tây Ban Nha và Pháp
                             </p>
                             <p class="price"><span>120.000 VNĐ</span>
                         </div>
@@ -224,7 +224,7 @@
                         <a href="#" class="img order-lg-last"
                             style="background-image: url({{ asset('public/front-end/images/anhFood3.jpg') }});"></a>
                         <div class="text p-4">
-                            <h3>Salad củ quả</h3>
+                            <h3 style="color: #f7bd5e">Salad củ quả</h3>
                             <p>Món ăn healthy nhất của nhà hàng Rice Bowl sẽ phù hợp với vị khách hàng khó tính nhất</p>
                             <p class="price"><span>123.000 VNĐ</span>
                         </div>
@@ -235,7 +235,7 @@
                         <a href="#" class="img order-lg-last"
                             style="background-image: url({{ asset('public/front-end/images/anhFood7.jpg') }});"></a>
                         <div class="text p-4">
-                            <h3>Trà táo bạc hà</h3>
+                            <h3 style="color: #f7bd5e">Trà táo bạc hà</h3>
                             <p>Trà thanh lọc được chiết xuất từ lá trà thiên nhiên, thêm chút bạc hà the the và vị táo
                                 nguyên chất</p>
                             <p class="price"><span>77.000 VNĐ</span>
@@ -247,7 +247,7 @@
                         <a href="#" class="img order-lg-last"
                             style="background-image: url({{ asset('public/front-end/images/anhFood8.jpg') }});"></a>
                         <div class="text p-4">
-                            <h3>Súp bò hầm</h3>
+                            <h3 style="color: #f7bd5e">Súp bò hầm</h3>
                             <p>Súp nóng hổi được hầm với thịt bò Mỹ sẽ để lại cho bạn cảm giác khó quên và muốn thử lại
                             </p>
                             <p class="price"><span>299.000 VNĐ</span>
@@ -309,8 +309,9 @@
                                 <div class="block-18 text-center">
                                     <div class="text">
                                         <div class="icon"><span class="flaticon-pizza-1"></span></div>
-                                        <strong class="number" data-number="100">0</strong>
-                                        <span style="font-size: 20px">Đơn đặt hàng mỗi ngày</span>
+                                        <strong class="number" data-number="100"
+                                            style="font-family: 'Josefin Sans';">0</strong>
+                                        <span style="font-size: 20px; font-family: 'Josefin Sans';">Đơn đặt mỗi ngày</span>
                                     </div>
                                 </div>
                             </div>
@@ -318,8 +319,10 @@
                                 <div class="block-18 text-center">
                                     <div class="text">
                                         <div class="icon"><span class="flaticon-medal"></span></div>
-                                        <strong class="number" data-number="25">0</strong>
-                                        <span style="font-size: 20px">Chứng nhận quốc tế</span>
+                                        <strong class="number" data-number="25"
+                                            style="font-family: 'Josefin Sans';">0</strong>
+                                        <span style="font-size: 20px; font-family: 'Josefin Sans';">Chứng nhận quốc
+                                            tế</span>
                                     </div>
                                 </div>
                             </div>
@@ -327,8 +330,10 @@
                                 <div class="block-18 text-center">
                                     <div class="text">
                                         <div class="icon"><span class="flaticon-laugh"></span></div>
-                                        <strong class="number" data-number="10567">0</strong>
-                                        <span style="font-size: 20px">Số lượng khách hàng</span>
+                                        <strong class="number" data-number="10567"
+                                            style="font-family: 'Josefin Sans';">0</strong>
+                                        <span style="font-size: 20px; font-family: 'Josefin Sans';">Số lượng khách
+                                            hàng</span>
                                     </div>
                                 </div>
                             </div>
@@ -336,7 +341,8 @@
                                 <div class="block-18 text-center">
                                     <div class="text">
                                         <div class="icon"><span class="flaticon-chef"></span></div>
-                                        <strong class="number" data-number="100">0</strong>
+                                        <strong class="number" data-number="100"
+                                            style="font-family: 'Josefin Sans';">0</strong>
                                         <span style="font-size: 20px">Đầu bếp hàng đầu</span>
                                     </div>
                                 </div>
@@ -348,7 +354,7 @@
         </section>
 
 
-        <section class="ftco-appointment">
+        {{-- <section class="ftco-appointment">
             <div class="overlay"></div>
             <div class="container-wrap">
                 <div class="row no-gutters d-md-flex align-items-center">
@@ -380,5 +386,5 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
     @endsection

@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light m-0 p-4" id="ftco-navbar">
     <div class="container">
-        <a class="navbar-brand" href="{{route('home')}}"><span class="flaticon-pizza-1 mr-1"></span>The Rice
+        <a class="navbar-brand" href="{{ route('home') }}"><span class="flaticon-pizza-1 mr-1"></span>The Rice
             Bowl<br><small>Restaurant</small></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
             aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,14 +9,19 @@
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
 
-                <li class="nav-item"><a href="{{ route('home') }}" class="nav-link">Trang chủ</a></li>
-                <li class="nav-item"><a href="{{ route('menu-page') }}" class="nav-link">Thực đơn</a></li>
-                <li class="nav-item"><a href="{{ route('service-page') }}" class="nav-link">Dịch vụ</a></li>
-                <li class="nav-item"><a href="{{ route('about-page') }}" class="nav-link">Về chúng tôi</a></li>
+                <li class="nav-item"><a href="{{ route('home') }}" class="nav-link" style="font-size: 20px">Trang
+                        chủ</a></li>
+                <li class="nav-item"><a href="{{ route('menu-page') }}" class="nav-link" style="font-size: 20px">Thực
+                        đơn</a></li>
+                <li class="nav-item"><a href="{{ route('service-page') }}" class="nav-link" style="font-size: 20px">Dịch
+                        vụ</a></li>
+                <li class="nav-item"><a href="{{ route('about-page') }}" class="nav-link" style="font-size: 20px">Về
+                        chúng tôi</a></li>
                 @guest
-                {{-- {{ route('login') }} --}}
+                    {{-- {{ route('login') }} --}}
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('Đăng nhập') }}</a>
+                        <a class="nav-link" href="{{ route('login') }}"
+                            style="color: #f7bd5e; font-size: 20px">{{ __('Đăng nhập') }}</a>
                     </li>
 
                     {{-- @if (Route::has('register'))
@@ -27,7 +32,8 @@
                 @else
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            style="color: #f7bd5e; font-size: 20px" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false" v-pre>
                             {{ Auth::user()->fullName }}
                             {{-- <span class="caret"></span> --}}
                         </a>
@@ -37,17 +43,19 @@
                             @if (Auth::user()->fullName == 'admin')
                                 {{-- <a class="nav-link" href="{{ route('admin') }}">{{ __('Trang quản trị') }}</a> --}}
                                 {{-- {{ route('admin') }} --}}
-                                <a class="dropdown-item" href="" onclick="event.preventDefault();
+                                <a class="dropdown-item" href="" style="font-family: 'Josefin Sans'; font-size: 20px"
+                                    onclick="event.preventDefault();
                                                             document.getElementById('admin-form').submit();">
                                     {{ __('Trang quản trị') }}
                                 </a>
                             @endif
                             {{-- {{ route('profile') }} --}}
-                            <a class="dropdown-item" href="">
+                            <a class="dropdown-item" href="" style="font-family: 'Josefin Sans'; font-size: 18px">
                                 {{ __('Thông tin cá nhân') }}
                             </a>
                             {{-- {{ route('logout') }} --}}
-                            <a class="dropdown-item" href="" onclick="event.preventDefault();
+                            <a class="dropdown-item" href="" style="font-family: 'Josefin Sans'; font-size: 18px"
+                                onclick="event.preventDefault();
                                                             document.getElementById('logout-form').submit();">
                                 {{ __('Đăng xuất') }}
                             </a>
