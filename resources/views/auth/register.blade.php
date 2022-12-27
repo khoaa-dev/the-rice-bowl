@@ -1,105 +1,116 @@
 @extends('layouts.app')
 @section('css')
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<style>
-    .divider:after,
-    .divider:before {
-        content: "";
-        flex: 1;
-        height: 1px;
-        background: #eee;
-    }
-    .h-custom {
-        height: calc(100% - 73px);
-    }
-    @media (max-width: 450px) {
-        .h-custom {
-            height: 100%;
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        .divider:after,
+        .divider:before {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #eee;
         }
-    }
-    #signup__page {
-        font-family: Roboto;
-        padding: 50px;
-        margin: 50px 0;
-    }
-    .btn-social {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        box-shadow: 0 4px 9px -4px #fac564 !important; 
-    }
-    .btn-social i {
-        scale: 1.5;
-    }
-</style>
+
+        .h-custom {
+            height: calc(100% - 73px);
+        }
+
+        @media (max-width: 450px) {
+            .h-custom {
+                height: 100%;
+            }
+        }
+
+        #signup__page {
+            font-family: Roboto;
+            padding: 50px;
+            margin: 50px 0;
+        }
+
+        .btn-social {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            box-shadow: 0 4px 9px -4px #fac564 !important;
+        }
+
+        .btn-social i {
+            scale: 1.5;
+        }
+    </style>
 @endsection
 @section('content')
-<div id="signup__page" class="container-fluid h-custom" style="background-color: #fff">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-md-9 col-lg-6 col-xl-5">
-            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
-            class="img-fluid" alt="Sample image">
-        </div>
-        <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-            <form method="POST" action="{{ route('register') }}">
-                @csrf
-                <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
-                    <p class="lead fw-normal mb-0 me-3" style="font-size: 16px; padding: 0 10px">Sign up with</p>
-                    <button type="button" class="btn-social btn btn-primary btn-floating mx-1">
-                        <i class="fab fa-facebook-f"></i>
-                    </button>
+    <div id="signup__page" class="container-fluid h-custom" style="background-color: transparent; padding: inherit">
+        <div class="row d-flex justify-content-center align-items-center h-100" style="margin-top: -40px;">
+            <div class="col-md-9 col-lg-6 col-xl-5">
+                <img src="{{ asset('public/front-end/images/login.png') }}" class="img-fluid" alt="Sample image">
+            </div>
+            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                <form method="POST" action="{{ route('register') }}">
+                    @csrf
+                    <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
+                        <p class="lead fw-normal mb-0 me-3" style="font-size: 20px; padding: 0 10px">Sign up with</p>
+                        <button type="button" class="btn-social btn btn-primary btn-floating mx-1">
+                            <i class="fab fa-facebook-f"></i>
+                        </button>
 
-                    <button type="button" class="btn-social btn btn-primary btn-floating mx-1">
-                        <i class="fab fa-twitter"></i>
-                    </button>
+                        <button type="button" class="btn-social btn btn-primary btn-floating mx-1">
+                            <i class="fab fa-twitter"></i>
+                        </button>
 
-                    <button type="button" class="btn-social btn btn-primary btn-floating mx-1">
-                        <i class="fab fa-linkedin-in"></i>
-                    </button>
-                </div>
+                        <button type="button" class="btn-social btn btn-primary btn-floating mx-1">
+                            <i class="fab fa-linkedin-in"></i>
+                        </button>
+                    </div>
 
-                <div class="divider d-flex align-items-center my-4">
-                    <p class="text-center fw-bold mx-3 mb-0">Or</p>
-                </div>
+                    <div class="divider d-flex align-items-center my-4">
+                        <p class="text-center fw-bold mx-3 mb-0">Or</p>
+                    </div>
 
-                <!-- Name input -->
-                <div class="form-outline mb-4" >
-                    <input type="text" id="name" name="name" class="form-control form-control-lg" required placeholder="Your full name" style="font-size: 16px"/>
-                </div>
+                    <!-- Name input -->
+                    <div class="form-outline mb-4">
+                        <input type="text" id="name" name="name" class="form-control form-control-lg" required
+                            placeholder="Your full name"
+                            style="font-family: 'Josefin Sans'; font-size: 18px; background-color: #fffab8 !important;" />
+                    </div>
 
-                <!-- Email input -->
-                <div class="form-outline mb-4" >
-                    <input type="email" id="email" name="email" class="form-control form-control-lg" required
-                    placeholder="Your email" style="font-size: 16px"/>
-                </div>
+                    <!-- Email input -->
+                    <div class="form-outline mb-4">
+                        <input type="email" id="email" name="email" class="form-control form-control-lg" required
+                            placeholder="Your email"
+                            style="font-family: 'Josefin Sans'; font-size: 18px; background-color: #fffab8 !important;" />
+                    </div>
 
-                <!-- Password input -->
-                <div class="form-outline mb-3">
-                    <input type="password" id="password" name="password" class="form-control form-control-lg" required autocomplete="new-password"
-                    placeholder="Your password" style="font-size: 16px"/>
-                </div>
+                    <!-- Password input -->
+                    <div class="form-outline mb-3">
+                        <input type="password" id="password" name="password" class="form-control form-control-lg" required
+                            autocomplete="new-password" placeholder="Your password"
+                            style="font-family: 'Josefin Sans'; font-size: 18px; background-color: #fffab8 !important;" />
+                    </div>
 
-                <!-- Password confirm input -->
-                <div class="form-outline mb-3">
-                    <input type="password" id="password-confirm" name="password_confirmation" required autocomplete="new-password" class="form-control form-control-lg"
-                    placeholder="Repeat password" style="font-size: 16px"/>
-                </div>
+                    <!-- Password confirm input -->
+                    <div class="form-outline mb-3">
+                        <input type="password" id="password-confirm" name="password_confirmation" required
+                            autocomplete="new-password" class="form-control form-control-lg" placeholder="Repeat password"
+                            style="font-family: 'Josefin Sans'; font-size: 18px; background-color: #fffab8 !important;" />
+                    </div>
 
-                <div class="text-center text-lg-start mt-4 pt-2">
-                    <button type="submit" class="btn btn-primary btn-lg w-100 text-uppercase"
-                    style="padding: 1rem 2.5rem; font-weight: 700">Register</button>
-                    <p class="small fw-bold mt-2 pt-1 mb-0" style="font-size: 14px">
-                        Have an account? 
-                        <a href="{{route('login')}}" class="link-danger" style="color: #dc4c64">Login</a>
-                    </p>
-                </div>
+                    <div class="text-center text-lg-start mt-4 pt-2">
+                        <button type="submit" class="btn btn-primary btn-lg w-100 text-uppercase"
+                            style="padding: 1rem 2.5rem; font-weight: 700; font-size: 18px; margin-bottom: 15px">Register</button>
+                        <p class="small fw-bold mt-2 pt-1 mb-0" style="font-size: 18px; margin-top: 20px">
+                            Have an account?
+                            <a href="{{ route('login') }}" class="link-danger"
+                                style="color: #fac564; font-size: 18px">Login</a>
+                        </p>
+                    </div>
 
-            </form>
+                </form>
+            </div>
         </div>
     </div>
-</div>
-{{-- <div class="container">
+    {{-- <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
