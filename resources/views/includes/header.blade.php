@@ -58,6 +58,10 @@
                             <a class="dropdown-item" href="" style="font-family: 'Josefin Sans'; font-size: 18px">
                                 {{ __('Thông tin cá nhân') }}
                             </a>
+                            {{-- {{ route('notification') }} --}}
+                            <a class="dropdown-item" href="" style="font-family: 'Josefin Sans'; font-size: 18px">
+                                {{ __('Thông báo') }}
+                            </a>
                             {{-- {{ route('logout') }} --}}
                             <a class="dropdown-item" href="" style="font-family: 'Josefin Sans'; font-size: 18px"
                                 onclick="event.preventDefault();
