@@ -2,11 +2,9 @@
 
 @section('css')
     <link rel="stylesheet" href="{{ asset('public/front-end/css/menu.css') }}">
-
 @endsection
 
 @section('content')
-
     <section class="home-slider owl-carousel img" style="background-image: url(public/front-end/images/anhFood1.jpg);">
 
         <div class="slider-item" style="background-image: url({{ asset($restaurant->menu_banner) }});">
@@ -14,9 +12,11 @@
             <div class="container">
                 <div class="row slider-text justify-content-center align-items-center">
                     <div class="col-md-7 col-sm-12 text-center ftco-animate">
-                        <h2 class="mb-3 mt-5 bread">THỰC ĐƠN ĐA DẠNG - PHONG PHÚ</h2>
-                        <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Trang chủ</a></span>
-                            <span>Thực đơn</span>
+                        <h2 class="mb-3 mt-5 bread" style="font-size: 30px; color: #f8be5f">THỰC ĐƠN ĐA DẠNG - PHONG PHÚ
+                        </h2>
+                        <p class="breadcrumbs"><span class="mr-2"><a href="index.html" style="font-size: 18px">Trang
+                                    chủ</a></span>
+                            <span style="font-size: 18px">Thực đơn</span>
                         </p>
                     </div>
 
@@ -29,7 +29,7 @@
         <div class="container">
             <div class="row justify-content-center mb-5 pb-3">
                 <div class="col-md-7 heading-section ftco-animate text-center">
-                    <h2 class="mb-4">Danh sách món ăn</h2>
+                    <h2 class="mb-4" style="color: #f8be5f">Danh sách món ăn</h2>
                     <p>Các món ăn hấp dẫn, đa dạng, phù hợp với mọi lứa tuối. Đáp ứng nhu cầu cho tất cả mọi người.</p>
                 </div>
             </div>
@@ -50,7 +50,7 @@
                             @endif
 
                             <div class="text p-4">
-                                <h3>{{ $food->name }}</h3>
+                                <h3 style="margin-top: 40px">{{ $food->name }}</h3>
                                 <p>The rice bowl</p>
                                 <p class="price" style="margin-top: 50px">
                                     <span>{{ number_format($food->price, 0) }} đ</span> <a href="#"
@@ -67,9 +67,10 @@
             <div class="row justify-content-center mb-5 pb-3 mt-5 pt-5">
                 <div class="col-md-7 heading-section text-center ftco-animate">
                     <h2 class="mb-4">Danh sách thực đơn</h2>
-                    <p class="flip"><span class="deg1"></span><span class="deg2"></span><span
-                            class="deg3"></span></p>
-                    <p class="mt-5">Thực đơn được các chuyên gia hàng đầu thế giới tạo ra, đầy đủ tất cả chất
+                    <p class="flip"><span class="deg1"></span><span class="deg2"></span><span class="deg3"></span>
+                    </p>
+                    <p class="mt-5" style="color: #f8be5f">Thực đơn được các chuyên gia hàng đầu thế giới tạo ra, đầy đủ
+                        tất cả chất
                         dinh dưỡng cho chúng ta</p>
                 </div>
             </div>
@@ -77,7 +78,7 @@
 
                 @foreach ($menus as $menu)
                     <div class="col-md-6" style="margin-bottom: 70px">
-                        <h2 class="menu-title">Menu</h2>
+                        <h2 class="menu-title" style="color: black">Menu</h2>
                         @foreach ($menu->menuFoods as $mf)
                             <div class="pricing-entry d-flex ftco-animate">
                                 <div class="img" style="background-image: url({{ asset($mf->food->image) }});">
@@ -85,7 +86,9 @@
                                 <div class="desc pl-3" style="margin-top: 20px">
                                     <div class="d-flex text align-items-center">
                                         <h3><span>{{ $mf->food->name }}</span></h3>
-                                        <span class="price">{{ number_format($mf->food->price, 0) }} đ</span>
+                                        <span class="price"
+                                            style="font-family: 'Josefin Sans';">{{ number_format($mf->food->price, 0) }}
+                                            đ</span>
                                     </div>
                                 </div>
                             </div>
@@ -96,5 +99,4 @@
             </div>
         </div>
     </section>
-
 @endsection

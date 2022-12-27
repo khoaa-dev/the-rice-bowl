@@ -28,16 +28,15 @@
     .blue {
         color: #ffd000;
     }
-
 </style>
 
 @section('content')
     <section class="home-slider owl-carousel img"
         style="background: linear-gradient(rgba(17, 30, 63, 0.9), rgba(112, 83, 15, 0.9)),
-                                                                                                            url({{ asset('public/front-end/images/anhFood1.jpg') }});
-                                                                                                            background-position: center center;
-                                                                                                            background-repeat: no-repeat;
-                                                                                                            background-size: cover;">
+        url({{ asset('public/front-end/images/anhFood1.jpg') }});
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;">
         <div class="slider-item">
             <div class="overlay"></div>
             <div class="container">
@@ -46,7 +45,9 @@
                     <div class="col-md-5 col-sm-12 ftco-animate">
                         <span class="subheading">Delicious</span>
                         <h1 class="mb-8">THE RICE BOWL</h1>
-                        <p class="mb-4 mb-md-5">Menu đa dạng với những món ăn ngon nhất từ các đầu bếp hàng đầu thế giới.
+                        <p class="mb-4 mb-md-5">Menu đa dạng với
+                            những món ăn ngon nhất từ các
+                            đầu bếp hàng đầu thế giới.
                         </p>
                         <p><a href="#" class="btn btn-primary p-3 px-xl-4 py-xl-3">Đặt Ngay</a> <a href="#"
                                 class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3">Xem Menu</a></p>
@@ -104,15 +105,13 @@
         </div>
         <div class="one-half ftco-animate">
             <div class="heading-section ftco-animate ">
-                <h2 class="mb-4">WELCOME TO THE RICE BOWL</h2>
+                <h2 class="mb-4">CHÀO MỪNG TỚI THE RICE BOWL</h2>
             </div>
             <div>
-                <p>Đội ngũ đầu bếp tại The Rice Bowl sáng tạo ra những thực đơn phù hợp với mọi dịp, phục vụ trong nhà hoặc
-                    ngoài trời, hay ngay trên bờ biển tuyệt đẹp của miền Trung Việt Nam. Các cặp đôi có thể lựa chọn thực
-                    đơn riêng hoặc buffet phong phú với phong cách Phương Tây, Á Châu, Việt Nam và món ngon địa phương. Đối
-                    với các cặp đôi tìm kiếm đám cưới mang phong cách nhiệt đới trên bờ biển tuyệt đẹp của Việt Nam, The
-                    Rice Bowl sẵn sàng để biến giấc mơ của bạn trở thành hiện thực với khung cảnh ngoạn mục cho đám cưới
-                    lãng mạn bên bờ biển.</p>
+                <p style="line-height: 35px;">Đội ngũ đầu bếp tại The Rice Bowl sáng tạo ra những thực đơn phù hợp với mọi
+                    dịp, phục vụ trong nhà hoặc ngoài trời, hay ngay trên bờ biển tuyệt đẹp của miền Trung Việt Nam. Các cặp
+                    đôi có thể lựa chọn thực đơn riêng hoặc buffet phong phú với phong cách Phương Tây, Á Châu, Việt Nam và
+                    món ngon địa phương.</p>
             </div>
         </div>
     </section>
@@ -384,7 +383,7 @@
     @endsection
 
 
-{{-- @extends('layouts.app')
+    {{-- @extends('layouts.app')
 
 @section('content')
 <div class="container">
