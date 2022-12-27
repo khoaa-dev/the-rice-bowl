@@ -46,9 +46,10 @@
                 @csrf
                 <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
                     <p class="lead fw-normal mb-0 me-3" style="font-size: 16px; padding: 0 10px">Sign in with</p>
-                    <button type="button" class="btn-social btn btn-primary btn-floating mx-1">
+                    <a href="{{ URL::to('/auth/redirect/facebook') }}" 
+                        class="btn-social btn btn-primary btn-floating mx-1 d-flex justify-content-center align-items-center">
                         <i class="fab fa-facebook-f"></i>
-                    </button>
+                    </a>
 
                     <button type="button" class="btn-social btn btn-primary btn-floating mx-1">
                         <i class="fab fa-twitter"></i>

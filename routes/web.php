@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\client\HomeController;
 use App\Http\Controllers\client\MenuController;
 use App\Http\Controllers\client\ServiceController;
+use App\Http\Controllers\client\SocialController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,10 @@ Route::get('/service', [ServiceController::class, 'index'])->name('service-page'
 Route::get('/about', [HomeController::class, 'renderAboutPage'])->name('about-page');
 
 Route::get('/login', [HomeController::class, 'renderLoginPage'])->name('login-page');
+
+Route::get('/auth/redirect/{provider}', [SocialController::class, 'redirect']);
+
+Route::get('/callback/{provider}', [SocialController::class, 'callback']);
 
 Auth::routes();
 
