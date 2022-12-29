@@ -50,7 +50,7 @@
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
                     <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
-                        <p class="lead fw-normal mb-0 me-3" style="font-size: 20px; padding: 0 10px">Sign in with</p>
+                        <p class="lead fw-normal mb-0 me-3" style="font-size: 20px; padding: 0 10px">Đăng nhập với </p>
                         <button type="button" class="btn-social btn btn-primary btn-floating mx-1">
                             <i class="fab fa-facebook-f"></i>
                         </button>
@@ -65,30 +65,31 @@
                     </div>
 
                     <div class="divider d-flex align-items-center my-4">
-                        <p class="text-center fw-bold mx-3 mb-0">Or</p>
+                        <p class="text-center fw-bold mx-3 mb-0">Hoặc</p>
                     </div>
 
                     <!-- Email input -->
                     <div class="form-outline mb-4">
                         <input type="email" id="email" name="email" class="form-control form-control-lg"
-                            placeholder="Enter a valid email address"
+                            placeholder="Nhập email"
                             style="font-family: 'Josefin Sans'; font-size: 18px; background-color: #fffab8 !important;" />
                     </div>
 
                     <!-- Password input -->
                     <div class="form-outline mb-3">
                         <input type="password" id="password" name="password" class="form-control form-control-lg"
-                            placeholder="Enter password"
+                            placeholder="Nhập mật khẩu"
                             style="font-family: 'Josefin Sans'; font-size: 18px; background-color: #fffab8 !important;" />
                     </div>
 
                     <div class="text-center text-lg-start mt-4 pt-2">
                         <button type="submit" class="btn btn-primary btn-lg w-100 text-uppercase"
-                            style="padding: 1rem 2.5rem; font-weight: 700; font-size: 18px; margin-bottom: 15px">Login</button>
+                            style="padding: 1rem 2.5rem; font-weight: 700; font-size: 18px; margin-bottom: 15px">ĐĂNG
+                            NHẬP</button>
                         <p class="small fw-bold mt-2 pt-1 mb-0" style="font-size: 18px; margin-top: 20px">
-                            Don't have an account?
+                            Bạn chưa có tài khoản?
                             <a href="{{ route('register') }}" class="link-danger"
-                                style="color: #fac564; font-size: 18px">Register</a>
+                                style="color: #fac564; font-size: 18px">Đăng ký</a>
                         </p>
                     </div>
 
