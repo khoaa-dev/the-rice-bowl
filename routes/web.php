@@ -5,6 +5,7 @@ use App\Http\Controllers\client\HomeController;
 use App\Http\Controllers\client\MenuController;
 use App\Http\Controllers\client\ServiceController;
 use App\Http\Controllers\client\SocialController;
+use App\Http\Controllers\Admin\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,3 +35,57 @@ Route::get('/callback/{provider}', [SocialController::class, 'callback']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+// Admin routes
+Route::prefix('admin')->group(function () {
+    Route::get('/home', [AdminController::class, 'index'])->name('admin');
+
+    Route::get('/form-validation', function () {
+        return view('admin.form_validation');
+    });
+    
+    Route::get('/form-wizards', function () {
+        return view('admin.form_wizards');
+    });
+    
+    Route::get('/form', function () {
+        return view('admin.form');
+    });
+    
+    Route::get('/icons', function () {
+        return view('admin.icons');
+    });
+    
+    Route::get('/glyphicons', function () {
+        return view('admin.glyphicons');
+    });
+    
+    Route::get('/invoice', function () {
+        return view('admin.invoice');
+    });
+    
+    Route::get('/profile', function () {
+        return view('admin.profile');
+    });
+    
+    Route::get('/projects', function () {
+        return view('admin.projects');
+    });
+    
+    Route::get('/project-detail', function () {
+        return view('admin.project_detail');
+    });
+    
+    Route::get('/contacts', function () {
+        return view('admin.contacts');
+    });
+    
+    Route::get('/tables', function () {
+        return view('admin.tables');
+    });
+    
+    Route::get('/tables-dynamic', function () {
+        return view('admin.tables_dynamic');
+    });
+});
