@@ -11,7 +11,7 @@
             height: 1px;
             background: #eee;
         }
-        
+
         .h-custom {
             height: calc(100% - 73px);
         }
@@ -52,7 +52,7 @@
                     <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
                         <p class="lead fw-normal mb-0 me-3" style="font-size: 20px; padding: 0 10px">Đăng nhập với </p>
                         <button type="button" class="btn-social btn btn-primary btn-floating mx-1">
-                            <a href="{{URL::to('/auth/redirect/facebook')}}" style="color: #000">
+                            <a href="{{ URL::to('/auth/redirect/facebook') }}" style="color: #000">
                                 <i class="fab fa-facebook-f"></i>
                             </a>
                         </button>
@@ -86,12 +86,12 @@
 
                     <div class="text-center text-lg-start mt-4 pt-2">
                         <button type="submit" class="btn btn-primary btn-lg w-100 text-uppercase"
-                            style="padding: 1rem 2.5rem; font-weight: 700; font-size: 18px; margin-bottom: 15px">ĐĂNG
+                            style="padding: 1rem 2.5rem; font-weight: 700; font-size: 18px; margin-bottom: 15px; font-family: 'Josefin Sans'">ĐĂNG
                             NHẬP</button>
                         <p class="small fw-bold mt-2 pt-1 mb-0" style="font-size: 18px; margin-top: 20px">
                             Bạn chưa có tài khoản?
                             <a href="{{ route('register') }}" class="link-danger"
-                                style="color: #fac564; font-size: 18px">Đăng ký</a>
+                                style="color: #fac564; font-size: 18px; ">Đăng ký</a>
                         </p>
                     </div>
 

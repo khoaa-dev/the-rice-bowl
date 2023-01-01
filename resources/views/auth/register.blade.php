@@ -98,7 +98,7 @@
 
                     <div class="text-center text-lg-start mt-4 pt-2">
                         <button type="submit" class="btn btn-primary btn-lg w-100 text-uppercase"
-                            style="padding: 1rem 2.5rem; font-weight: 700; font-size: 18px; margin-bottom: 15px">Đăng
+                            style="padding: 1rem 2.5rem; font-weight: 700; font-size: 18px; margin-bottom: 15px; font-family: 'Josefin Sans'">Đăng
                             ký</button>
                         <p class="small fw-bold mt-2 pt-1 mb-0" style="font-size: 18px; margin-top: 20px">
                             Bạn đã có tài khoản?

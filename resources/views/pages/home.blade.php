@@ -357,6 +357,91 @@
             </div>
         </section>
 
+        <section class="ftco-section" style="padding: initial; margin-top: 80px;">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 heading-section ftco-animate text-center row">
+                        <h2 class="mb-4 col-12" style="color: #f7bd5e">ĐÁNH GIÁ TỪ PHÍA KHÁCH HÀNG</h2>
+                        <div class="container"
+                            style="border: solid 1px #c9c372;border-radius: 20px; margin-top: 20px; padding: 30px; margin-bottom: 80px">
+                            @foreach ($eveluates as $evelute)
+                                <div class="media col-12" style="padding: 30px 30px 0px 30px">
+                                    @if ($evelute->avatarUrl != '')
+                                        <img src="{{ asset('public/front-end/images/' . $evelute->avatarUrl) }}"
+                                            alt="Avatar" class="avaUser">
+                                    @else
+                                        <img src="{{ asset('public/front-end/images/ava_hang.jpg') }}" alt="Avatar"
+                                            class="avaUser">
+                                    @endif
+                                    {{-- <img class="avaUser" src="{{asset('public/front-end/images/'.$eva->avatarUrl)}}" alt="..." class="img-thumbnail"> --}}
+                                    <div class="media-body" style="margin-left: 25px">
+                                        <h1
+                                            style="font-size: 20px; font-weight: 500; color: rgb(255, 237, 75); text-align:left">
+                                            {{ $evelute->fullName }}</h1>
+                                        <p style="font-size: 16px; text-align:left">{{ $evelute->created_at }}</p>
+                                        <p style="font-size: 20px; text-align:left; color: rgb(255 248 187)">
+                                            {{ $evelute->content }}</p>
+                                    </div>
+                                </div>
+                            @endforeach
+                            <div class="justify-content-center col-12" style="margin-top: 30px">
+                                {{ $eveluates->links('pagination.custom') }}
+                            </div>
+                        </div>
+
+                        {{-- {{ route('send_comment') }} --}}
+                        @if ($statusReview == 1)
+                            <form action="{{ url('evaluate') }}" method="POST" class="col-12">
+                                @csrf
+                                <div class="form-group shadow-textarea" style="margin-top: 20px">
+                                    <h2 for="exampleFormControlTextarea1" style="margin-top: 30px; color: #f7bd5e">NHẬP
+                                        ĐÁNH
+                                        GIÁ CỦA BẠN:</h2>
+                                    <p style="color: #ffffff; font-size:22px">Những đóng góp quý giá của quý khách là động
+                                        lực để chúng tôi cố gắng hoàn thiện hơn!
+                                    </p>
+                                    <div class="container"
+                                        style="border: solid 1px #c9c372;border-radius: 20px; margin-top: 30px; padding: 35px; margin-bottom: 60px">
+                                        <div id="cate-rating" class="cate-rating"
+                                            style="text-align: left; margin-top: 30px; margin-left: 12px">
+                                            <div class="stars" style="margin-top: 30px">
+                                                <a id="star-1" class="star">
+                                                    <span class="glyphicon glyphicon-star"></span>
+                                                </a>
+                                                <a id="star-2" class="star"><span
+                                                        class="glyphicon glyphicon-star"></span></a>
+                                                <a id="star-3" class="star"><span
+                                                        class="glyphicon glyphicon-star"></span></a>
+                                                <a id="star-4" class="star"><span
+                                                        class="glyphicon glyphicon-star"></span></a>
+                                                <a id="star-5" class="star"><span
+                                                        class="glyphicon glyphicon-star"></span></a>
+                                                <input type="hidden" name="numberStar" id="numberStar">
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="d-flex container">
+                                            <textarea
+                                                style="color: rgb(255 248 187) !important; font-size: 20px; font-family: 'Josefin Sans';margin-right: 20px; margin-bottom: 20px; margin-top: 20px"
+                                                class="form-control" name="comment_content" placeholder="Nhập đánh giá của bạn..." rows="2"></textarea>
+                                            <button type="submit" class="btn btn-warning send-comment"
+                                                style="color: #ffba5a; width: 150px; height: 40px; font-size : 18px; font-family: 'Josefin Sans';
+                                            border-radius: 10px;background-color: transparent;font-weight: 500; margin-top: 25px">Gửi
+                                                đánh giá</button>
+                                            <div id="notify_comment"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        @else
+                        @endif
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
 
         {{-- <section class="ftco-appointment">
             <div class="overlay"></div>
@@ -392,3 +477,63 @@
             </div>
         </section> --}}
     @endsection
+    @section('js')
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                /*
+                 * Hiệu ứng khi rê chuột lên ngôi sao
+                 */
+                $('a.star').mouseenter(function() {
+                    if ($('#cate-rating').hasClass('rating-ok') == false) {
+                        var eID = $(this).attr('id');
+                        eID = eID.split('-').splice(-1);
+                        $('a.star').removeClass('vote-active');
+                        for (var i = 1; i <= eID; i++) {
+                            $('#star-' + i + ' span').addClass('vote-hover');
+                        }
+                    }
+                }).mouseleave(function() {
+                    if ($('#cate-rating').hasClass('rating-ok') == false) {
+                        $('span').removeClass('vote-hover');
+                    }
+                });
+
+                /*
+                 * Sự kiện khi cho điểm
+                 */
+                $('a.star').click(function() {
+                    if ($('#cate-rating').hasClass('rating-ok') == false) {
+                        var eID = $(this).attr('id');
+                        eID = eID.split('-').splice(-1).toString();
+                        for (var i = 1; i <= eID; i++) {
+                            $('#star-' + i).addClass('vote-active');
+                        }
+                        //$('p#vote-desc').html('<span class="blue">' + eID + '</span>');
+                        $('#numberStar').val(eID);
+                        $('#cate-rating').addClass('rating-ok');
+                    }
+                });
+            });
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('.send-comment').click(function() {
+                    var numberStar = $('#numberStar').val();
+                    var comment_content = $('.comment_content').val();
+                    //var _token = $('input[name="_token"]').val();
+                    $.ajax({
+                        url: "/send",
+                        method: "POST",
+                        data: {
+                            comment_content: comment_content,
+                            numberStar: numberStar
+                        },
+                        success: function(data) {
+                            $('#notifiy_comment').html(
+                                '<p class="text text-success">Thêm bình luận thành công!</p>')
+                        }
+                    })
+                })
+            });
+        </script>
