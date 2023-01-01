@@ -5,6 +5,7 @@ use App\Http\Controllers\client\HomeController;
 use App\Http\Controllers\client\EvaluateController;
 use App\Http\Controllers\client\MenuController;
 use App\Http\Controllers\client\FoodController;
+use App\Http\Controllers\client\OrderController;
 use App\Http\Controllers\client\ServiceController;
 use App\Http\Controllers\client\SocialController;
 use App\Http\Controllers\Admin\AdminController;
@@ -56,6 +57,8 @@ Route::post('/init-session', [FoodController::class, 'initSession'])->name('init
 
 Route::get('/update-menu', [FoodController::class, 'updateMenu'])->name('updateMenu');
 
+// Handle Order
+Route::post('/order-create', [OrderController::class, 'createOrder'])->name('createOrder');
 
 // Admin routes
 Route::prefix('admin')->group(function () {
