@@ -9,8 +9,7 @@
         <!-- menu profile quick info -->
         <div class="profile clearfix">
             <div class="profile_pic">
-                <img src="{{ asset('public/front-end/images/ava2.jpg') }}" alt="..."
-                    class="img-circle profile_img">
+                <img src="{{ asset('public/front-end/images/ava2.jpg') }}" alt="..." class="img-circle profile_img">
             </div>
             <div class="profile_info">
                 <span>Xin chào,</span>
@@ -28,36 +27,34 @@
                 <ul class="nav side-menu">
                     <li>
                         <a><i class="fa fa-home"></i> Thống kê<span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu" >
+                        <ul class="nav child_menu">
                             <li><a href="{{ url('admin/home') }}">Dashboard</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a><i class="fa fa-book"></i> Thông tin nhà hàng <span
-                                class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu" >
+                        <a><i class="fa fa-book"></i> Thông tin nhà hàng <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
                             <li><a href="#">Thông tin</a></li>
                         </ul>
                     </li>
 
                     <li>
                         <a><i class="fa fa-life-ring"></i> Dịch vụ <span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu" >
-                            <li><a href="#">Danh sách dịch vụ</a></li>
-                            <li><a href="#">Thêm dịch vụ</a></li>
+                        <ul class="nav child_menu">
+                            <li><a href="{{route('service.index')}}">Danh sách dịch vụ</a></li>
+                            <li><a href="{{route('service.create')}}">Thêm dịch vụ</a></li>
                         </ul>
                     </li>
 
                     <li>
                         <a><i class="fa fa-gift"></i> Gói ưu đãi <span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu" >
+                        <ul class="nav child_menu">
                             <li><a href="#">Danh sách gói ưu đãi</a></li>
                         </ul>
                     </li>
-
                     <li>
                         <a><i class="fa fa-cutlery"></i> Món ăn <span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu" >
+                        <ul class="nav child_menu">
                             <li><a href="#">Quản lý món ăn</a></li>
                             {{-- <li><a href="index.html">Thêm món ăn</a></li> --}}
                         </ul>
@@ -65,7 +62,7 @@
 
                     <li>
                         <a><i class="fa fa-building-o"></i> Thực đơn <span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu" >
+                        <ul class="nav child_menu">
                             <li><a href="#">Quản lý thực đơn</a></li>
                             {{-- <li><a href="index.html">Thêm món ăn</a></li> --}}
                         </ul>
@@ -73,7 +70,7 @@
 
                     <li>
                         <a><i class="fa fa-cube"></i> Đơn hàng <span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu" >
+                        <ul class="nav child_menu">
                             <li><a href="#">Danh sách đơn hàng</a></li>
                             <li><a href="index.html">Duyệt đơn hàng</a></li>
                         </ul>
@@ -81,7 +78,7 @@
 
                     <li>
                         <a><i class="fa fa-group"></i> Thành viên <span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu" >
+                        <ul class="nav child_menu">
                             <li><a href="#">Quản lý thành viên</a></li>
                         </ul>
                     </li>
