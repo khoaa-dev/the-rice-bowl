@@ -16,6 +16,7 @@ use App\Http\Controllers\client\AddressController;
 use App\Http\Controllers\Admin\FoodController as AdminFoodController;
 use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -166,4 +167,8 @@ Route::prefix('admin')->group(function () {
     Route::get('/orders/{id}', [AdminOrderController::class, 'show'])->name('showOrder');
 
     Route::post('/orders/{id}/confirm', [AdminOrderController::class, 'confirmOrder'])->name('adminConfirmOrder');
+
+    // ADMIN
+    // Service Category
+    Route::resource('service', 'App\Http\Controllers\Admin\ServiceController');
 });
