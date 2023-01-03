@@ -1,7 +1,13 @@
 <div class="col-md-3 left_col menu_fixed">
     <div class="left_col scroll-view">
         <div class="navbar nav_title" style="border: 0;">
-            <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>The Rice Bowl</span></a>
+            <a href="index.html" class="site_title"><i class="fa fa-cutlery"
+                    style="
+                padding: 10px 12px !important;
+                border-radius: 50% !important;
+                margin-right: 3px; !important"></i>
+                <span>The
+                    Rice Bowl</span></a>
         </div>
 
         <div class="clearfix"></div>
@@ -9,40 +15,34 @@
         <!-- menu profile quick info -->
         <div class="profile clearfix">
             <div class="profile_pic">
-                <img src="{{ asset('public/front-end/images/ava2.jpg') }}" alt="..."
+                <img src="{{ asset('public/front-end/images/ava_admin.jpg') }}" alt="..."
                     class="img-circle profile_img">
             </div>
             <div class="profile_info">
-                <span>Xin chào,</span>
-                <h2>Admin</h2>
+                <span style="font-style: italic !important; font-size: 16px !important;">Xin chào,</span>
+                <h2 font-size: 16px !important;>Admin</h2>
             </div>
         </div>
-        <!-- /menu profile quick info -->
-
-        <br />
-
         <!-- sidebar menu -->
         <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
             <div class="menu_section">
-                <h3>General</h3>
                 <ul class="nav side-menu">
                     <li>
                         <a><i class="fa fa-home"></i> Thống kê<span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu" >
+                        <ul class="nav child_menu">
                             <li><a href="{{ url('admin/home') }}">Dashboard</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a><i class="fa fa-book"></i> Thông tin nhà hàng <span
-                                class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu" >
+                        <a><i class="fa fa-book"></i> Thông tin nhà hàng <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
                             <li><a href="#">Thông tin</a></li>
                         </ul>
                     </li>
 
                     <li>
                         <a><i class="fa fa-life-ring"></i> Dịch vụ <span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu" >
+                        <ul class="nav child_menu">
                             <li><a href="#">Danh sách dịch vụ</a></li>
                             <li><a href="#">Thêm dịch vụ</a></li>
                         </ul>
@@ -50,14 +50,14 @@
 
                     <li>
                         <a><i class="fa fa-gift"></i> Gói ưu đãi <span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu" >
+                        <ul class="nav child_menu">
                             <li><a href="#">Danh sách gói ưu đãi</a></li>
                         </ul>
                     </li>
 
                     <li>
                         <a><i class="fa fa-cutlery"></i> Món ăn <span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu" >
+                        <ul class="nav child_menu">
                             <li><a href="#">Quản lý món ăn</a></li>
                             {{-- <li><a href="index.html">Thêm món ăn</a></li> --}}
                         </ul>
@@ -65,7 +65,7 @@
 
                     <li>
                         <a><i class="fa fa-building-o"></i> Thực đơn <span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu" >
+                        <ul class="nav child_menu">
                             <li><a href="#">Quản lý thực đơn</a></li>
                             {{-- <li><a href="index.html">Thêm món ăn</a></li> --}}
                         </ul>
@@ -73,7 +73,7 @@
 
                     <li>
                         <a><i class="fa fa-cube"></i> Đơn hàng <span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu" >
+                        <ul class="nav child_menu">
                             <li><a href="#">Danh sách đơn hàng</a></li>
                             <li><a href="index.html">Duyệt đơn hàng</a></li>
                         </ul>
@@ -81,7 +81,7 @@
 
                     <li>
                         <a><i class="fa fa-group"></i> Thành viên <span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu" >
+                        <ul class="nav child_menu">
                             <li><a href="#">Quản lý thành viên</a></li>
                         </ul>
                     </li>
