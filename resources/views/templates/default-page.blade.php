@@ -58,14 +58,14 @@
         }
     </style>
     <!-- header -->
-    @include("client.includes.header")
+    @include("includes.header")
 
     @yield('content')
 
 
     {{-- @include('sweet::alert') --}}
     <!-- footer -->
-    @include("client.includes.footer")
+    @include("includes.footer")
 
     <!-- Messenger Plugin chat Code -->
     <div id="fb-root"></div>

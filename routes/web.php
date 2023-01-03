@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\client\HomeController;
 use App\Http\Controllers\client\EvaluateController;
 use App\Http\Controllers\client\MenuController;
+use App\Http\Controllers\client\FoodController;
+use App\Http\Controllers\client\OrderController;
 use App\Http\Controllers\client\ServiceController;
 use App\Http\Controllers\client\SocialController;
 use App\Http\Controllers\Admin\AdminController;
@@ -27,6 +29,8 @@ Route::get('/menu', [MenuController::class, 'index'])->name('menu-page');
 
 Route::get('/service', [ServiceController::class, 'index'])->name('service-page');
 
+Route::get('/service/{id}', [ServiceController::class, 'show'])->name('package-page');
+
 Route::get('/about', [HomeController::class, 'renderAboutPage'])->name('about-page');
 
 Route::get('/login', [HomeController::class, 'renderLoginPage'])->name('login-page');
@@ -41,6 +45,26 @@ Auth::routes();
 // Evaluates routes
 // Route::post('/evaluate', 'EvaluateController@send_comment')->name('send_comment');
 Route::post('/evaluate', [EvaluateController::class, 'send_comment'])->name('send');
+
+// Handle Ajax
+Route::post('/search', [FoodController::class, 'getSearchAjax'])->name('search');
+
+Route::post('/add-food', [FoodController::class, 'addFood'])->name('addFood');
+
+Route::post('/remove-food', [FoodController::class, 'removeFood'])->name('removeFood');
+
+Route::post('/init-session', [FoodController::class, 'initSession'])->name('initSession');
+
+Route::get('/update-menu', [FoodController::class, 'updateMenu'])->name('updateMenu');
+
+Route::middleware('auth')->group(function() {
+    // Handle Order
+    Route::post('/order-create', [OrderController::class, 'createOrder'])->name('createOrder');
+
+    Route::get('/order/{id}', [OrderController::class, 'show'])->name('getOrder');
+
+    Route::get('/confirmOrder/{id}', [OrderController::class, 'confirmOrder'])->name('confirmOrder');
+});
 
 // Admin routes
 Route::prefix('admin')->group(function () {
