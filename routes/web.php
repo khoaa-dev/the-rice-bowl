@@ -57,8 +57,14 @@ Route::post('/init-session', [FoodController::class, 'initSession'])->name('init
 
 Route::get('/update-menu', [FoodController::class, 'updateMenu'])->name('updateMenu');
 
-// Handle Order
-Route::post('/order-create', [OrderController::class, 'createOrder'])->name('createOrder');
+Route::middleware('auth')->group(function() {
+    // Handle Order
+    Route::post('/order-create', [OrderController::class, 'createOrder'])->name('createOrder');
+
+    Route::get('/order/{id}', [OrderController::class, 'show'])->name('getOrder');
+
+    Route::get('/confirmOrder/{id}', [OrderController::class, 'confirmOrder'])->name('confirmOrder');
+});
 
 // Admin routes
 Route::prefix('admin')->group(function () {

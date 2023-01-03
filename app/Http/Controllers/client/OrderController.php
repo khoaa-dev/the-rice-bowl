@@ -33,15 +33,12 @@ class OrderController extends Controller
         $order->status = 1;
         $order->paymentId = 1;
         $order->userId = $user->id;
-        $order->packageId = 0;
+        $order->packageId = 1;
         $order->save();
         $order->service = Service::where('id', $order->serviceId)->first();
 
-
-
         Session::put('orderId', $order->id);
         $paymentMethods = PaymentMethod::all();
-
 
         if ($request->menuId == -1) {
             $foodIds = $request->session()->get('foodIds', null);
@@ -60,7 +57,7 @@ class OrderController extends Controller
 
             $totalCost *= $request->peopleNumber;
 
-            return view('cart.cart')->with('order', $order)->with('paymentMethods', $paymentMethods)->with('foods', $foods)
+            return view('pages.order.show')->with('order', $order)->with('paymentMethods', $paymentMethods)->with('foods', $foods)
                 ->with('totalCost', $totalCost)
                 ->with('user', $user)
                 ->with('status', $order->status);
@@ -82,11 +79,48 @@ class OrderController extends Controller
             $totalCost *= $request->peopleNumber;
 
             $service = Service::where('id', Session::get('serviceId', 0))->first();
-            return view('pages.cart')->with('order', $order)->with('paymentMethods', $paymentMethods)->with('menu', $menu)
+            return view('pages.order.show')->with('order', $order)->with('paymentMethods', $paymentMethods)->with('menu', $menu)
                 ->with('totalCost', $totalCost)
                 ->with('user', $user)
                 ->with('status', $order->status)
                 ->with('service', $service);
         }
+    }
+
+    public function show($id)
+    {
+        $order = Order::where('id', $id)->first();
+        $order->service = Service::where('id', $order->serviceId)->first();
+        $paymentMethods = PaymentMethod::all();
+
+        $idUser = Session::get('idUser', 1);
+        $user = User::where('id', $idUser)->first();
+
+        Session::put('orderId', $id);
+
+        $totalCost = 0;
+        $order_foods = OrderFood::where('orderId', $id)->get();
+        $foods = new Collection();
+
+        foreach ($order_foods as $order_food) {
+            $food = Food::where('id', $order_food->foodId)->first();
+            $foods->push($food);
+            $totalCost += $food->price;
+        }
+
+        $totalCost *= $order->peopleNumber;
+        $status = $order->status;
+
+        return view('pages.order.show', compact('order', 'foods', 'totalCost', 'user', 'status'));
+    }
+
+    public function confirmOrder(Request $request, $id)
+    {
+        $order = Order::where('id', $id)->first();
+        $order->paymentId = $request->payment;
+        $order->status = 4;
+        $order->update();
+
+        return back()->with('status', 'Đơn hàng của bạn đã được duyệt. Nhân viên sẽ liên hệ bạn trong thời gian sớm nhất.');
     }
 }

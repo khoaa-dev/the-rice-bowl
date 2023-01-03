@@ -120,7 +120,7 @@
 <section class="ftco-section ftco-services">
     <div class="row">
         <div class="col-md-8">
-            <h1 style="text-align: center; color: #a7501f">Our Menu</h1>
+            <h1 style="text-align: center; color: #a7501f">Thực đơn của chúng tôi</h1>
             <div class="row" style="margin-left: 20px;margin-top: 60px">
 
                 @foreach ($menus as $menu)
@@ -132,8 +132,8 @@
                             <img src="{{ asset($mf->food->image) }}"
                                 style=" border-radius: 100%;margin-top: -10px; height: 50px; width:50px;max-width: 50px; max-height: 50px;min-width: 50px; min-height: 50px; box-shadow: 0 4px 8px 0 rgba(192, 151, 16, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" />
                             &nbsp;&nbsp;
-                            <h3 style="background: none; color: #563c05"><span>{{ $mf->food->name }}</h3>
-                            <span class="price" style="color: #563c05">{{ number_format($mf->food->price, 0) }} đ</span>
+                            <h3 style="background: none; color: #563c05; font-size: 20px"><span>{{ $mf->food->name }}</h3>
+                            <span class="price" style="color: #563c05; font-size: 20px">{{ number_format($mf->food->price, 0) }} đ</span>
                         </div>
                         @endforeach
 
@@ -215,8 +215,8 @@
                             chú</label>
                         <textarea class="inp form-control col-12" id="note" name="note"></textarea>
                     </div>
-                    <div class="col-12 row btn-order">
-                        <button style="width: 100%;height: 40px; border-color: rgb(126, 125, 125); font-size: 18px"
+                    <div class="col-12 row mt-4 btn-order">
+                        <button style="width: 100%;height: 50px; border-color: rgb(126, 125, 125); font-size: 18px; color: #e7ba28 !important; border-radius: 10px"
                             class="btn btn-dark col-12" type="submit">Đặt
                             đơn</button>
                     </div>
