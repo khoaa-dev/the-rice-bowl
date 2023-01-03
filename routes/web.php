@@ -10,6 +10,8 @@ use App\Http\Controllers\client\ServiceController;
 use App\Http\Controllers\client\SocialController;
 use App\Http\Controllers\Admin\AdminController;
 
+use App\Http\Controllers\Admin\FoodController as AdminFoodController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -57,7 +59,7 @@ Route::post('/init-session', [FoodController::class, 'initSession'])->name('init
 
 Route::get('/update-menu', [FoodController::class, 'updateMenu'])->name('updateMenu');
 
-Route::middleware('auth')->group(function() {
+Route::middleware('auth')->group(function () {
     // Handle Order
     Route::post('/order-create', [OrderController::class, 'createOrder'])->name('createOrder');
 
@@ -117,4 +119,17 @@ Route::prefix('admin')->group(function () {
     Route::get('/tables-dynamic', function () {
         return view('admin.tables_dynamic');
     });
+
+    //Food Management
+    Route::get('/foodManagement', [AdminFoodController::class, 'index'])->name('foodManagement');
+
+    Route::get('/add-food', [AdminFoodController::class, 'create'])->name('createFood');
+
+    Route::post('/add-food', [AdminFoodController::class, 'store'])->name('add-food');
+
+    Route::get('/edit-food/{id}', [AdminFoodController::class, 'edit']);
+
+    Route::post('/update-food/{id}', [AdminFoodController::class, 'update']);
+
+    Route::get('/delete-food/{id}', [AdminFoodController::class, 'destroy']);
 });
