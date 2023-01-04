@@ -11,6 +11,7 @@ use App\Http\Controllers\client\SocialController;
 use App\Http\Controllers\Admin\AdminController;
 
 use App\Http\Controllers\Admin\FoodController as AdminFoodController;
+use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -132,4 +133,11 @@ Route::prefix('admin')->group(function () {
     Route::post('/update-food/{id}', [AdminFoodController::class, 'update']);
 
     Route::get('/delete-food/{id}', [AdminFoodController::class, 'destroy']);
+
+    //Order Management
+    Route::get('/orders', [AdminOrderController::class, 'index'])->name('getListOrder');
+
+    Route::get('/orders/{id}', [AdminOrderController::class, 'show'])->name('showOrder');
+
+    Route::post('/orders/{id}/confirm', [AdminOrderController::class, 'confirmOrder'])->name('adminConfirmOrder');
 });
