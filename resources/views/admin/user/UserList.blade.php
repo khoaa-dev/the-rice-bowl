@@ -23,8 +23,12 @@
                 <thead>
                     <tr class="headings">
                         <th>STT</th>
-                        <th class="column-title">TÊN DỊCH VỤ </th>
-                        <th class="column-title">CHI TIẾT DỊCH VỤ </th>
+                        <th class="column-title">HỌ TÊN</th>
+                        <th class="column-title">EMAIL</th>
+                        <th class="column-title">SỐ ĐIỆN THOẠI</th>
+                        <th class="column-title">NGÀY SINH </th>
+                        <th class=" column-title">TÊN NGƯỜI DÙNG</th>
+                        <th class="column-title">ĐỊA CHỈ</th>
                         <th class="column-title no-link last">
                             <span class="nobr">ACTION</span>
                         </th>
@@ -37,15 +41,18 @@
 
                 <tbody>
                     <?php $i=1;?>
-                    @foreach ($data_all_services as $service)
+                    @foreach ($data_all_users as $user)
                     <tr class="even pointer">
                         <td><?php echo $i++; ?></td>
-                        <th>{{ $service->name }}</th>
-                        <th style="width: 60%">{{ $service->detail }}</th>
+                        <th>{{ $user->fullname }}</th>
+                        <th style="width: 60%">{{ $user->email }}</th>
+                        <th style="width: 60%">{{ $user->dob }}</th>
+                        <th style="width: 60%">{{ $user->username }}</th>
+                        <th style="width: 60%">{{ $user->houseNumber }}</th>
                         <th>
-                            <a href="{{route('service.edit', $service->id) }}">
+                            <a href="{{route('user.edit', $user->id) }}">
                                 <i class="fa fa-edit"></i></a>
-                            <a href="{{ route('service.destroy', $service->id)}}">
+                            <a href="{{ route('user.destroy', $user->id)}}">
                                 <i class="   fa fa-remove"></i>
                             </a>
                         </th>

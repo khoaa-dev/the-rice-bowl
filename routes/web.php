@@ -8,7 +8,6 @@ use App\Http\Controllers\client\ServiceController;
 use App\Http\Controllers\client\SocialController;
 use App\Http\Controllers\Admin\AdminController;
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -95,6 +94,3 @@ Route::prefix('admin')->group(function () {
         return view('admin.tables_dynamic');
     });
 });
-// ADMIN
-// Service Category
-Route::resource('service', 'App\Http\Controllers\Admin\ServiceController');
