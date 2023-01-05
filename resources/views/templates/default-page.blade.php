@@ -35,7 +35,7 @@
     <link rel="stylesheet" href="{{ asset('public/front-end/css/icomoon.css') }}">
     <link rel="stylesheet" href="{{ asset('public/front-end/css/style.css?v=').time() }}">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.16/sweetalert2.min.css"> --}}
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -58,15 +58,15 @@
         }
     </style>
     <!-- header -->
-    @include("client.includes.header")
+    @include("includes.header")
 
     @yield('content')
 
 
     {{-- @include('sweet::alert') --}}
     <!-- footer -->
-    @include("client.includes.footer")
-
+    @include("includes.footer")
+    @yield('js')
     <!-- Messenger Plugin chat Code -->
     <div id="fb-root"></div>
 
@@ -74,7 +74,7 @@
     <div id="fb-customer-chat" class="fb-customerchat">
     </div>
 
-    <script>
+    {{-- <script>
       var chatbox = document.getElementById('fb-customer-chat');
       chatbox.setAttribute("page_id", "109572828265035");
       chatbox.setAttribute("attribution", "biz_inbox");
@@ -96,7 +96,7 @@
         js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));
-    </script>
+    </script> --}}
 
     <script src="{{ asset('public/front-end/js/login.js') }}"></script>
     <script src="{{ asset('public/front-end/js/jquery.min.js') }}"></script>
@@ -117,21 +117,11 @@
     <script src="{{ asset('public/front-end/js/google-map.js') }}"></script>
     <script src="{{ asset('public/front-end/js/main.js') }}"></script>
     <script src="https://www.paypalobjects.com/api/checkout.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js">
-
-        <!-- Messenger Plugin chat Code -->
-    <div id="fb-root"></div>
-
-    <!-- Your Plugin chat code -->
-    <div id="fb-customer-chat" class="fb-customerchat">
-    </div>
-
-    <script>
-      var chatbox = document.getElementById('fb-customer-chat');
-      chatbox.setAttribute("page_id", "109572828265035");
-      chatbox.setAttribute("attribution", "biz_inbox");
-    </script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    {{-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.16/sweetalert2.all.min.js"></script> --}}
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
 </body>
 
 </html>
