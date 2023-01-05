@@ -9,6 +9,7 @@ use App\Http\Controllers\client\OrderController;
 use App\Http\Controllers\client\ServiceController;
 use App\Http\Controllers\client\SocialController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\client\PayPalController;
 
 use App\Http\Controllers\Admin\FoodController as AdminFoodController;
 use App\Http\Controllers\Admin\OrderController as AdminOrderController;
@@ -64,9 +65,19 @@ Route::middleware('auth')->group(function () {
     // Handle Order
     Route::post('/order-create', [OrderController::class, 'createOrder'])->name('createOrder');
 
-    Route::get('/order/{id}', [OrderController::class, 'show'])->name('getOrder');
+    Route::get('/orders/{id}', [OrderController::class, 'show'])->name('getOrder');
 
     Route::get('/confirmOrder/{id}', [OrderController::class, 'confirmOrder'])->name('confirmOrder');
+
+    // Handle Paypal Payment
+    Route::get('create-transaction', [PayPalController::class, 'createTransaction'])->name('createTransaction');
+
+    // Route::get('process-transaction/{id}', [PayPalController::class, 'processTransaction'])->name('processTransaction');
+    Route::post('process-transaction/{id}', [OrderController::class, 'processPayment'])->name('processPayment');
+
+    Route::get('success-transaction/{id}/{paymentId}', [PayPalController::class, 'successTransaction'])->name('successTransaction');
+
+    Route::get('cancel-transaction/{id}', [PayPalController::class, 'cancelTransaction'])->name('cancelTransaction');
 });
 
 // Admin routes
