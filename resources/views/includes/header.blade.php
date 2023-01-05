@@ -58,10 +58,7 @@
                             <a class="dropdown-item" href="" style="font-family: 'Josefin Sans'; font-size: 18px">
                                 {{ __('Thông tin cá nhân') }}
                             </a>
-                            {{-- {{ route('notification') }} --}}
-                            <a class="dropdown-item" href="" style="font-family: 'Josefin Sans'; font-size: 18px">
-                                {{ __('Thông báo') }}
-                            </a>
+
                             {{-- {{ route('logout') }} --}}
                             <a class="dropdown-item" href="" style="font-family: 'Josefin Sans'; font-size: 18px"
                                 onclick="event.preventDefault();
@@ -80,11 +77,44 @@
                             <form id="admin-form" action="" method="GET" style="display: none;">
                                 @csrf
                             </form>
-
-
                         </div>
                     </li>
-
+                    <li role="presentation" class="nav-item dropdown open">
+                        <ul class="navbar-nav d-flex flex-row me-1">
+                            <li class="nav-item me-3 me-lg-0">
+                                <div class="dropdown">
+                                    <a href="javascript:;" class="" data-toggle="dropdown" aria-expanded="false">
+                                        <div class="container d-flex" style="padding: 5px">
+                                            <img style="height: 25px; width: 30px; margin-top: 5px;"
+                                                src="{{ asset('public/front-end/images/bell.png') }}">
+                                            <span
+                                                style="font-family: 'Josefin Sans';border-radius: 20px;margin-bottom: 10px;margin-left: -12px;"
+                                                class="badge badge-notification bg-danger">5</span>
+                                        </div>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                        <li class="nav-item" style="width:200px">
+                                            {{-- <a class="dropdown-item">
+                                                <span class="image"><img style="width:50px; height:50px"
+                                                        src="{{ asset('public/front-end/images/checked.png') }}"
+                                                        alt="Profile Image" /></span>
+                                                <span>
+                                                    <span style="font-weight: bold !important">hello</span>
+                                                    <span class="time" style="font-weight: normal !important">5m
+                                                        trước</span>
+                                                </span>
+                                                <br>
+                                                <span class="message"
+                                                    style="color: #a11425 !important; font-style: italic; !important">
+                                                    Có đơn hàng mới đang chờ duyệt!
+                                                </span>
+                                            </a> --}}
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
 
                 @endguest
             </ul>

@@ -13,11 +13,25 @@ class AdminController extends Controller
         $numberService = DB::table('services')->count();
         $numberFood = DB::table('food')->count();
         $numberOrder = DB::table('orders')->count();
+
+        $orderCount = DB::table('orders')->where('status', 1)->count();
+        $orderLists = DB::table('orders')->where('status', 1)
+                        ->join('users', 'orders.userId', '=', 'users.id')
+                        ->select('users.fullName', 'orders.created_at', 'avatarUrl')
+                        ->orderBy('orders.created_at', 'desc')
+                        ->paginate(5);
+
         $services = Service::all();
         return view('admin.index')->with('services',$services)
                                 ->with('numberUser', $numberUser)
                                 ->with('numberService',$numberService)
                                 ->with('numberFood',$numberFood)
-                                ->with('numberOrder',$numberOrder);
+                                ->with('numberOrder',$numberOrder)
+                                ->with('orderCount', $orderCount)
+                                ->with('orderLists', $orderLists);
     }
+
+    public function showNoti(){
+    }
+
 }
