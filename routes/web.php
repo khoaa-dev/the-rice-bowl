@@ -10,6 +10,8 @@ use App\Http\Controllers\client\ServiceController;
 use App\Http\Controllers\client\SocialController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\client\PayPalController;
+use App\Http\Controllers\client\UserController;
+use App\Http\Controllers\client\AddressController;
 
 use App\Http\Controllers\Admin\FoodController as AdminFoodController;
 use App\Http\Controllers\Admin\OrderController as AdminOrderController;
@@ -72,12 +74,25 @@ Route::middleware('auth')->group(function () {
     // Handle Paypal Payment
     Route::get('create-transaction', [PayPalController::class, 'createTransaction'])->name('createTransaction');
 
-    // Route::get('process-transaction/{id}', [PayPalController::class, 'processTransaction'])->name('processTransaction');
     Route::post('process-transaction/{id}', [OrderController::class, 'processPayment'])->name('processPayment');
 
     Route::get('success-transaction/{id}/{paymentId}', [PayPalController::class, 'successTransaction'])->name('successTransaction');
 
     Route::get('cancel-transaction/{id}', [PayPalController::class, 'cancelTransaction'])->name('cancelTransaction');
+
+    // Handle User Profile
+    Route::prefix('profile')->group(function () {
+
+        Route::get('/infor', [UserController::class, 'index'])->name('profile');
+    
+        Route::get('/history', [UserController::class, 'history'])->name('history');
+    
+        Route::post('/update', [UserController::class, 'updateInfor'])->name('updateInfor');
+
+        Route::post('/district', [AddressController::class, 'getDistrict'])->name('getDistrict');
+
+        Route::post('/village', [AddressController::class, 'getVillage'])->name('getVillage');
+    });
 });
 
 // Admin routes

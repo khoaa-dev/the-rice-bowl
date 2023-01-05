@@ -10556,6 +10556,10 @@ h5,
         padding-right: 20px;
         color: #fff;
     }
+
+    .ftco-navbar-light .navbar-nav>.nav-item:last-child>.nav-link {
+        padding-right: 40px;
+    }
 }
 
 .ftco-navbar-light .navbar-nav>.nav-item>.nav-link:hover {

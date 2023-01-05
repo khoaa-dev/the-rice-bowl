@@ -280,9 +280,10 @@
 
                                 </div>
                                 @if ($status == 1)
-                                <button data-view-id="cart_navigation_proceed" data-toggle="modal"
+                                {{-- <button data-view-id="cart_navigation_proceed" data-toggle="modal"
                                     data-target="#notifyConfirmOrder" type="button" class="cart__submit">Đặt dịch
-                                    vụ</button>
+                                    vụ</button> --}}
+                                <span data-view-id="cart_navigation_proceed" class="message__paid" @disabled(true)>Đơn hàng đang chờ duyệt</span>
                                 @elseif($status == 2)
                                 <button data-view-id="cart_navigation_proceed" type="submit" class="cart__submit">Xác
                                     nhận</button>
