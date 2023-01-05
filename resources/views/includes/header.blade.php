@@ -54,8 +54,8 @@
                                     {{ __('Trang quản trị') }}
                                 </a>
                             @endif
-                            {{-- {{ route('profile') }} --}}
-                            <a class="dropdown-item" href="" style="font-family: 'Josefin Sans'; font-size: 18px">
+                            
+                            <a class="dropdown-item" href="{{ route('profile') }}" style="font-family: 'Josefin Sans'; font-size: 18px">
                                 {{ __('Thông tin cá nhân') }}
                             </a>
 

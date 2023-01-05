@@ -5,7 +5,7 @@
         <div class="container">
             <div class="row justify-content-center mb-5 pb-3">
                 <div class="col-md-7 heading-section ftco-animate text-center">
-                    <h2 class="mb-4" style="margin-top: -40px; font-size: 35px; color: #a7501f">Dịch vụ của chúng tôi</h2>
+                    <h2 class="mb-4" style="font-size: 35px; color: #a7501f">Dịch vụ của chúng tôi</h2>
                     <p style="font-size: 22px; color: #74581e">Đây là những dịch vụ được quan tâm, ưa chuộng nhất hiện nay
                     </p>
                 </div>

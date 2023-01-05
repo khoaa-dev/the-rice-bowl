@@ -7,8 +7,9 @@ use App\Models\Service;
 use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
-{
+ {
     public function index() {
+
         $numberUser = DB::table('users')->where('roleId', 2)->count();
         $numberService = DB::table('services')->count();
         $numberFood = DB::table('food')->count();

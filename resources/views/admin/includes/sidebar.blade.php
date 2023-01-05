@@ -1,11 +1,10 @@
 <div class="col-md-3 left_col menu_fixed">
     <div class="left_col scroll-view">
         <div class="navbar nav_title" style="border: 0;">
-            <a href="index.html" class="site_title"><i class="fa fa-cutlery"
-                    style="
+            <a href="index.html" class="site_title"><i class="fa fa-cutlery" style="
                 padding: 10px 12px !important;
                 border-radius: 50% !important;
-                margin-right: 3px; !important"></i>
+                margin-right: 3px !important"></i>
                 <span>The
                     Rice Bowl</span></a>
         </div>
@@ -15,8 +14,7 @@
         <!-- menu profile quick info -->
         <div class="profile clearfix">
             <div class="profile_pic">
-                <img src="{{ asset('public/front-end/images/ava_admin.jpg') }}" alt="..."
-                    class="img-circle profile_img">
+                <img src="{{ asset('public/front-end/images/ava_admin.jpg') }}" alt="..." class="img-circle profile_img">
             </div>
             <div class="profile_info">
                 <span style="font-style: italic !important; font-size: 16px !important;">Xin chào,</span>
@@ -43,8 +41,8 @@
                     <li>
                         <a><i class="fa fa-life-ring"></i> Dịch vụ <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="#">Danh sách dịch vụ</a></li>
-                            <li><a href="#">Thêm dịch vụ</a></li>
+                            <li><a href="{{route('service.index')}}">Danh sách dịch vụ</a></li>
+                            <li><a href="{{route('service.create')}}">Thêm dịch vụ</a></li>
                         </ul>
                     </li>
 
@@ -54,28 +52,20 @@
                             <li><a href="#">Danh sách gói ưu đãi</a></li>
                         </ul>
                     </li>
-
                     <li>
                         <a><i class="fa fa-cutlery"></i> Món ăn <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="#">Quản lý món ăn</a></li>
-                            {{-- <li><a href="index.html">Thêm món ăn</a></li> --}}
+                            <li><a href="{{ URL::to('/admin/foodManagement') }}">Quản lý món ăn</a></li>
                         </ul>
                     </li>
 
-                    <li>
                         <a><i class="fa fa-building-o"></i> Thực đơn <span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                            <li><a href="#">Quản lý thực đơn</a></li>
-                            {{-- <li><a href="index.html">Thêm món ăn</a></li> --}}
-                        </ul>
                     </li>
 
                     <li>
                         <a><i class="fa fa-cube"></i> Đơn hàng <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="#">Danh sách đơn hàng</a></li>
-                            <li><a href="index.html">Duyệt đơn hàng</a></li>
+                            <li><a href="{{ route('getListOrder') }}">Danh sách đơn hàng</a></li>
                         </ul>
                     </li>
 
@@ -126,8 +116,7 @@
                             <li><a href="{{ url('admin/profile') }}" class="nav-link">Profile</a></li>
                         </ul>
                     </li>
-                    <li><a href="javascript:void(0)"><i class="fa fa-laptop"></i> Landing Page <span
-                                class="label label-success pull-right">Coming Soon</span></a></li>
+                    <li><a href="javascript:void(0)"><i class="fa fa-laptop"></i> Landing Page <span class="label label-success pull-right">Coming Soon</span></a></li>
                 </ul>
             </div>
 
