@@ -14,6 +14,7 @@ use App\Models\Service;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Session;
+use Srmklive\PayPal\Services\PayPal as PayPalClient;
 
 class OrderController extends Controller
 {
@@ -111,7 +112,7 @@ class OrderController extends Controller
         $totalCost *= $order->peopleNumber;
         $status = $order->status;
 
-        return view('pages.order.show', compact('order', 'foods', 'totalCost', 'user', 'status'));
+        return view('pages.order.show', compact('order', 'foods', 'totalCost', 'user', 'status', 'paymentMethods'));
     }
 
     public function confirmOrder(Request $request, $id)
@@ -122,5 +123,53 @@ class OrderController extends Controller
         $order->update();
 
         return back()->with('status', 'Đơn hàng của bạn đã được duyệt. Nhân viên sẽ liên hệ bạn trong thời gian sớm nhất.');
+    }
+
+    public function processPayment(Request $request, $id)
+    {
+        if($request->payment == 1) {
+            $totalCost = $request->totalCost;
+            $paymentId = $request->payment;
+            $provider = new PayPalClient;
+            $provider->setApiCredentials(config('paypal'));
+            $paypalToken = $provider->getAccessToken();
+            $response = $provider->createOrder([
+                "intent" => "CAPTURE",
+                "application_context" => [
+                    "return_url" => route('successTransaction', [$id, $paymentId]),
+                    "cancel_url" => route('cancelTransaction', $id),
+                ],
+                "purchase_units" => [
+                    0 => [
+                        "amount" => [
+                            "currency_code" => "USD",
+                            "value" => "" . $totalCost
+                        ]
+                    ]
+                ]
+            ]);
+            if (isset($response['id']) && $response['id'] != null) {
+                // redirect to approve href
+                foreach ($response['links'] as $links) {
+                    if ($links['rel'] == 'approve') {
+                        return redirect()->away($links['href']);
+                    }
+                }
+                return redirect()
+                    ->route('getOrder', $id)
+                    ->with('error', 'Thanh toán thất bại.');
+            } else {
+                return redirect()
+                    ->route('getOrder', $id)
+                    ->with('error', $response['message'] ?? 'Thanh toán thất bại.');
+            }
+        } elseif ($request->payment == 3) {
+            $order = Order::where('id', $id)->first();
+            $order->paymentId = $request->payment;
+            $order->status = 4;
+            $order->update();
+
+            return back()->with('status', 'Xác nhận thành công. Chúng tôi sẽ chuẩn bị cho đơn hàng của bạn.');
+        }
     }
 }
