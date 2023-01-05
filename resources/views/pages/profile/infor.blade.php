@@ -1,7 +1,15 @@
 @extends('pages.profile.profile')
-
-
-
+@section('profile-css')
+<link href="{{ asset('public/front-end/admin/vendors/bootstrap-daterangepicker/daterangepicker.css') }}"
+    rel="stylesheet">
+<style>
+    .swal2-popup {
+        font-size: 20px !important;
+        font-family: "Josefin Sans" !important;
+    }
+    
+</style>
+@endsection
 @section('profile-body')
 <div class="row gutters">
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
@@ -31,8 +39,8 @@
     </div>
     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
         <div class="form-group">
-            <label for="website" style="font-size: 18px; color: #fac564; font-weight: normal; ">Ngày sinh</label>
-            <input style="font-size: 18px; color: #fff !important;" type="url" class="form-control" id="dob"
+            <label for="dob" style="font-size: 18px; color: #fac564; font-weight: normal; ">Ngày sinh</label>
+            <input style="font-size: 18px; color: #fff !important;" type="text" class="date form-control" id="dob"
                 placeholder="Nhập ngày sinh" value="{{ $user->dob }}">
         </div>
     </div>
@@ -66,7 +74,7 @@
                     {{ $province->name }}
                 </option>
                 @else
-                <option style="font-size: 18px;" value="">-Chọn-</option>
+                <option style="font-size: 18px; background-color: #272E48;" value="">-Chọn-</option>
 
                 @endif
                 @foreach ($provinces as $province)
@@ -80,7 +88,7 @@
         <div class="form-group">
             <label for="sTate" style="font-size: 18px; color: #fac564; font-weight: normal; ">Quận/Huyện </label>
             {{-- <input type="text" class="form-control" id="sTate" placeholder="Thành phố"> --}}
-            <select style="font-size: 18px; color: #fff !important; " id="district" name="provinceId"
+            <select style="font-size: 18px; color: #fff !important; " id="district" name="districtId"
                 class="form-control">
                 @if (isset($district))
                 <option style="font-size: 18px;" value="{{ $district->id }}">
@@ -101,7 +109,7 @@
         <div class="form-group">
             <label for="sTate" style="font-size: 18px; color: #fac564; font-weight: normal; ">Phường/Xã</label>
             {{-- <input type="text" class="form-control" id="sTate" placeholder="Thành phố"> --}}
-            <select style="font-size: 18px; color: #fff !important; " id="village" name="provinceId"
+            <select style="font-size: 18px; color: #fff !important; " id="village" name="villageId"
                 class="form-control">
                 @if (isset($village))
                 <option style="font-size: 18px;" value="{{ $village->id }}">
@@ -128,8 +136,6 @@
 <div class="row gutters">
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
         <div class="text-right">
-            <button type="button" id="btn-refresh" name="submit" class="btn btn-secondary"
-                style="font-size: 16px; border-radius: 5px">Hủy</button>
             <button type="button" id="btn-update-infor-user" name="submit" class="btn btn-primary"
                 style="font-size: 16px; border-radius: 5px">Cập nhật</button>
         </div>
@@ -146,7 +152,7 @@
                 var provinceId = $('#province option').filter(':selected').val();
                 var _token = $('input[name=_token]').val();
                 $.ajax({
-                    url: '{{ route('getDistrict') }}',
+                    url: "{{ route('getDistrict') }}",
                     method: 'POST',
                     data: {
                         provinceId: provinceId,
@@ -155,7 +161,7 @@
                     dataType: "JSON",
                     success: function(data) {
                         $('#district').html(data);
-                        // alert('success');
+                        alert('success');
                     }
                 })
             })
@@ -166,7 +172,7 @@
                 var districtId = $('#district option').filter(':selected').val();
                 var _token = $('input[name=_token]').val();
                 $.ajax({
-                    url: '{{ route('getVillage') }}',
+                    url: "{{ route('getVillage') }}",
                     method: 'POST',
                     data: {
                         districtId: districtId,
@@ -193,7 +199,7 @@
                 // var id = {{ $id }};
                 var _token = $('input[name=_token]').val();
                 $.ajax({
-                    url: '{{ route('updateInfor') }}',
+                    url: "{{ route('updateInfor') }}",
                     method: 'POST',
                     data: {
                         fullName: fullName,
@@ -207,12 +213,41 @@
                     },
                     dataType: "JSON",
                     success: function(data) {
-                        alert('success');
 
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: 'bottom-start',
+                            showConfirmButton: false,
+                            timer: 4000,
+                            timerProgressBar: true,
+                            didOpen: (toast) => {
+                                toast.addEventListener('mouseenter', Swal.stopTimer)
+                                toast.addEventListener('mouseleave', Swal.resumeTimer)
+                            }
+                        })
 
+                        Toast.fire({
+                            width: 350,
+                            padding: '1em 1em',
+                            icon: 'success',
+                            text: 'Cập nhật thành công!',
+                            color: '#716add',
+                            showClass: {
+                                popup: 'animate__animated animate__fadeInUp'
+                            },
+                            hideClass: {
+                                popup: 'animate__animated animate__fadeInDown'
+                            }
+                        })
                     }
                 })
             })
         })
+</script>
+<script src="{{ asset('public/front-end/admin/vendors/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+<script type="text/javascript">
+    $('#dob').datepicker({  
+        dateFormat: 'dd/mm/yy'
+    });
 </script>
 @endsection

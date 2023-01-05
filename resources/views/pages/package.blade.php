@@ -6,6 +6,10 @@
 <link rel="stylesheet" href="{{ asset('public/front-end/css/style2.css') }}">
 <link rel="stylesheet" href="{{ asset('public/front-end/css/package.css') }}">
 <style>
+    .swal2-popup {
+        font-size: 20px !important;
+        font-family: "Josefin Sans" !important;
+    }e
     .modal-confirm {
         color: #434e65;
         width: 525px;
@@ -291,8 +295,8 @@
                 </div>
 
                 <div class="modal-footer d-flex justify-content-center">
-                    <button id="btnUpdateMenu" class="btn btn-dark" style="font-size: 18px; border-radius: 5px"
-                        data-dismiss="modal" data-toggle="modal" data-target="#notifySuccessModal">
+                    {{-- data-target="#notifySuccessModal" --}}
+                    <button id="btnUpdateMenu" class="btn btn-dark" style="font-size: 18px; border-radius: 5px" data-dismiss="modal" data-toggle="modal" >
                         Cập nhật thực đơn</button>
                 </div>
             </div>
@@ -461,6 +465,7 @@
             var _token = $('input[name="_token"]').val();
             $.ajax({
                 // url: "http://localhost/the-rice-bowl/update-menu",
+                async: false,
                 url: "{{ route('updateMenu') }}",
                 method: "GET",
                 data: {
@@ -469,6 +474,31 @@
 
                 success: function(data) { //dữ liệu nhận về
                     $(".food-in-menu").html(data);
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'bottom-start',
+                        showConfirmButton: false,
+                        timer: 4000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.addEventListener('mouseenter', Swal.stopTimer)
+                            toast.addEventListener('mouseleave', Swal.resumeTimer)
+                        }
+                    })
+
+                    Toast.fire({
+                        width: 350,
+                        padding: '1em 1em',
+                        icon: 'success',
+                        text: 'Cập nhật thành công!',
+                        color: '#716add',
+                        showClass: {
+                            popup: 'animate__animated animate__fadeInUp'
+                        },
+                        hideClass: {
+                            popup: 'animate__animated animate__fadeInDown'
+                        }
+                    })
                 },
                 error: function(data) {
                     alert('error');
@@ -477,6 +507,52 @@
             });
 
         })
+
+        function updateMenu() {
+            var k = $.Deferred()
+            $.ajax({
+                // url: "http://localhost/the-rice-bowl/update-menu",
+                async: true,
+                url: "{{ route('updateMenu') }}",
+                method: "GET",
+                data: {
+                    _token: _token
+                },
+
+                success: function(data) { //dữ liệu nhận về
+                    $(".food-in-menu").html(data);
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'bottom-start',
+                        showConfirmButton: false,
+                        timer: 4000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.addEventListener('mouseenter', Swal.stopTimer)
+                            toast.addEventListener('mouseleave', Swal.resumeTimer)
+                        }
+                    })
+
+                    Toast.fire({
+                        width: 350,
+                        padding: '1em 1em',
+                        icon: 'success',
+                        text: 'Cập nhật thành công!',
+                        color: '#716add',
+                        showClass: {
+                            popup: 'animate__animated animate__fadeInUp'
+                        },
+                        hideClass: {
+                            popup: 'animate__animated animate__fadeInDown'
+                        }
+                    })
+                },
+                error: function(data) {
+                    alert('error');
+                    console.log('Error:', data);
+                }
+            });
+        }
 
 
     });

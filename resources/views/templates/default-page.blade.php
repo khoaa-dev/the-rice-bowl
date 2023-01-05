@@ -35,7 +35,7 @@
     <link rel="stylesheet" href="{{ asset('public/front-end/css/icomoon.css') }}">
     <link rel="stylesheet" href="{{ asset('public/front-end/css/style.css?v=').time() }}">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.16/sweetalert2.min.css"> --}}
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -66,7 +66,7 @@
     {{-- @include('sweet::alert') --}}
     <!-- footer -->
     @include("includes.footer")
-
+    @yield('js')
     <!-- Messenger Plugin chat Code -->
     <div id="fb-root"></div>
 
@@ -117,8 +117,11 @@
     <script src="{{ asset('public/front-end/js/google-map.js') }}"></script>
     <script src="{{ asset('public/front-end/js/main.js') }}"></script>
     <script src="https://www.paypalobjects.com/api/checkout.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js">
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    {{-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.16/sweetalert2.all.min.js"></script> --}}
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
 </body>
 
 </html>

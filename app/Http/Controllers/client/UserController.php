@@ -68,4 +68,25 @@ class UserController extends Controller
                                             ->with('i', $i);
     }
 
+    public function updateInfor(Request $request) {
+        $fullName = $request->fullName;
+        $email = $request->email;
+        $phone = $request->phone;
+        $dob = $request->dob;
+        $houseNumber = $request->houseNumber;
+        $street = $request->street;
+        $villageId = $request->villageId;
+        
+        $user = User::where('email', $request->email)->first();
+        $user->fullName = $fullName;
+        $user->email = $email;
+        $user->phone = $phone;
+        $user->dob = $dob;
+        $user->houseNumber = $houseNumber;
+        $user->street = $street;
+        $user->villageId = $villageId;
+        $user->save();
+
+        return $user;
+    }
 }
