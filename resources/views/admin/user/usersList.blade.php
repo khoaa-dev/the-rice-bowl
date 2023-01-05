@@ -8,7 +8,7 @@
 <div class="right_col row content" role="main">
     <div class="x_content col-11" style="margin-left: 20px">
 
-        <h3>Danh sách dịch vụ</h3>
+        <h3>Danh sách người dùng</h3>
 
         <div class="status">
             @if (session('status'))
@@ -18,7 +18,7 @@
 
         <div class="table-responsive">
 
-            <a href="{{route('service.create')}}"><i class="fa fa-plus-square"></i></a>
+            <a href="{{route('user.create')}}"><i class="fa fa-plus-square"></i></a>
             <table class="table table-striped jambo_table bulk_action">
                 <thead>
                     <tr class="headings">
@@ -44,8 +44,9 @@
                     @foreach ($data_all_users as $user)
                     <tr class="even pointer">
                         <td><?php echo $i++; ?></td>
-                        <th>{{ $user->fullname }}</th>
-                        <th style="width: 60%">{{ $user->email }}</th>
+                        <th style="width: 60%">{{ $user->fullName }}</th>
+                        <th style="width: 20%">{{ $user->email }}</th>
+                        <th style="width: 20%">{{ $user->phone }}</th>
                         <th style="width: 60%">{{ $user->dob }}</th>
                         <th style="width: 60%">{{ $user->username }}</th>
                         <th style="width: 60%">{{ $user->houseNumber }}</th>
@@ -64,7 +65,7 @@
             </table>
 
             <div class="d-flex justify-content-center">
-                {{ $service->links }}
+                {{ $user->links }}
             </div>
         </div>
     </div>

@@ -171,4 +171,5 @@ Route::prefix('admin')->group(function () {
     // ADMIN
     // Service Category
     Route::resource('service', 'App\Http\Controllers\Admin\ServiceController');
+    Route::resource('user', 'App\Http\Controllers\Admin\UserController');
 });
