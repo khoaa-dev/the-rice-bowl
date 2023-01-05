@@ -132,8 +132,8 @@
                             <img src="{{ asset($mf->food->image) }}"
                                 style=" border-radius: 100%;margin-top: -10px; height: 50px; width:50px;max-width: 50px; max-height: 50px;min-width: 50px; min-height: 50px; box-shadow: 0 4px 8px 0 rgba(192, 151, 16, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" />
                             &nbsp;&nbsp;
-                            <h3 style="background: none; color: #563c05; font-size: 20px"><span>{{ $mf->food->name }}</h3>
-                            <span class="price" style="color: #563c05; font-size: 20px">{{ number_format($mf->food->price, 0) }} đ</span>
+                            <h3 style="background: none; color: #563c05; font-size: 19px"><span>{{ $mf->food->name }}</h3>
+                            <span class="price" style="color: #563c05; font-size: 19px">{{ number_format($mf->food->price, 0) }} đ</span>
                         </div>
                         @endforeach
 
