@@ -85,9 +85,9 @@ Route::middleware('auth')->group(function () {
     Route::prefix('profile')->group(function () {
 
         Route::get('/infor', [UserController::class, 'index'])->name('profile');
-    
+
         Route::get('/history', [UserController::class, 'history'])->name('history');
-    
+
         Route::post('/update', [UserController::class, 'updateInfor'])->name('updateInfor');
 
         Route::post('/district', [AddressController::class, 'getDistrict'])->name('getDistrict');
@@ -99,6 +99,9 @@ Route::middleware('auth')->group(function () {
 // Admin routes
 Route::prefix('admin')->group(function () {
     Route::get('/home', [AdminController::class, 'index'])->name('admin');
+
+    Route::post('/filter-by-date', 'AdminController@filter_by_date');
+    Route::post('/filter-by-date1', 'AdminController@filter_by_date1');
 
     Route::get('/form-validation', function () {
         return view('admin.form_validation');
