@@ -24,11 +24,12 @@
                     <a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1"
                         data-toggle="dropdown" aria-expanded="false">
                         <i class="fa fa-bell" style="margin-top: 4px !important; font-size: 20px !important;"></i>
-                        <span class="badge bg-red" style="margin-top: 6px !important;">{{ $orderCount }}</span>
+                        <span class="badge bg-red"
+                            style="margin-top: 6px !important;">{{ Session::get('orderCount') }}</span>
                     </a>
                     <ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1"
                         style="position: absolute;transform: translate3d(-139px, 35px, 0px) !important;top: 0px;left: 0px;will-change: transform;">
-                        @foreach ($orderLists as $orderItem)
+                        @foreach (Session::get('orderLists') as $orderItem)
                             <li class="nav-item">
                                 <a class="dropdown-item">
                                     <span class="image"><img
