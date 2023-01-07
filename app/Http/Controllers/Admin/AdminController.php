@@ -42,36 +42,42 @@ class AdminController extends Controller
         $from_date = Carbon::createFromFormat('m/d/Y', $request->from_date)->format('Y-m-d');
         $to_date = Carbon::createFromFormat('m/d/Y', $request->to_date)->format('Y-m-d');
 
-        // $gets = DeclarationStatistic::all();
-        $gets = Statistic::whereBetween('date',[$from_date, $to_date])->orderBy('date','ASC')->get();
+        $orders = DB::table('orders')
+                    ->join('order_food', 'orders.id', '=', 'order_food.orderId')
+                    ->join('food', 'order_food.foodId', '=', 'food.id')
+                    ->whereBetween('orders.updated_at', [$from_date, $to_date])
+                    ->select(DB::raw('SUM(food.price * "peopleNumber") AS revenue'), 'orders.updated_at')
+                    ->groupBy('orders.updated_at')
+                    ->get();
+
         $chart_data = new Collection();
-        foreach($gets as $get){
+        foreach($orders as $order){
             $chart_data->push([
-                'date' => $get->date,
-                'sumRevenues' => $get->sumRevenues
+                'date' => $order->updated_at,
+                'sumRevenues' => $order->revenue
             ]);
         }
         return json_encode($chart_data);
     }
 
-    public function filter_by_date1(Request $request){
+    public function filter_by_service(Request $request){
         $from_date = Carbon::createFromFormat('m/d/Y', $request->from_date)->format('Y-m-d');
         $to_date = Carbon::createFromFormat('m/d/Y', $request->to_date)->format('Y-m-d');
         $serviceId = $request->serviceId;
-        // $gets = DeclarationStatistic::all();
-        $gets = Order::whereBetween('organizationDate',[$from_date, $to_date])
-                    ->select(DB::raw('count(id) as number'),'organizationDate')
-                    ->groupBy('organizationDate')
-                    ->orderBy('organizationDate','ASC')
-                    ->where('serviceId',$serviceId)
-                    ->get();
-                    // return json_encode($gets);
+
+        $order_by_services = DB::table('orders')
+            ->join('services', 'orders.serviceId', '=', 'services.id')
+            ->whereBetween(DB::raw('cast(orders.updated_at as date)'), [$from_date, $to_date])
+            ->select(DB::raw('COUNT(orders.id) AS number'), DB::raw('cast(orders.updated_at as date)'), 'services.name')
+            ->where('services.id', '=', $serviceId)
+            ->groupBy(DB::raw('cast(orders.updated_at as date)'), 'services.name')
+            ->get();
 
         $chart_data = new Collection();
-        foreach($gets as $get){
+        foreach($order_by_services as $order){
             $chart_data->push([
-                'organizationDate' => $get->organizationDate,
-                'number' => $get->number
+                'date' => $order->updated_at,
+                'number' => $order->number
             ]);
         }
         return json_encode($chart_data);
