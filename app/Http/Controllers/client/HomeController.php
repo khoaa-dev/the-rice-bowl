@@ -41,24 +41,24 @@ class HomeController extends Controller
 
             $orderCount = DB::table('orders')
                 ->join('users', 'users.id', '=', 'orders.userId')
+                ->where('userId', $user->id)
                 ->where('status', 2)
                 ->orWhere('status',3)
-                ->where('userId', $user->id)
                 ->count();
             Session::put('orderCount', $orderCount);
 
             $orderLists = DB::table('orders')
                 ->join('users', 'users.id', '=', 'orders.userId')
+                ->where('userId', $user->id)
                 ->where('status', 2)
                 ->orWhere('status',3)
-                ->where('userId', $user->id)
                 ->select('orders.updated_at', 'orders.status', 'orders.id')
                 ->orderBy('orders.updated_at', 'desc')
                 ->get();
             Session::put('orderLists', $orderLists);
         }
         $statusReview = Session::get('statusReview', 0);
-        return view('pages.home', compact('eveluates', 'statusReview', 'restaurant', 'orderCount', 'orderLists'));
+        return view('pages.home', compact('eveluates', 'statusReview', 'restaurant'));
     }
 
     public function renderAboutPage() {

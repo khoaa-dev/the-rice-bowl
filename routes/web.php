@@ -69,7 +69,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/order-create', [OrderController::class, 'createOrder'])->name('createOrder');
 
     Route::get('/orders/{id}', [OrderController::class, 'show'])->name('getOrder');
-
     Route::get('/confirmOrder/{id}', [OrderController::class, 'confirmOrder'])->name('confirmOrder');
 
     // Handle Paypal Payment

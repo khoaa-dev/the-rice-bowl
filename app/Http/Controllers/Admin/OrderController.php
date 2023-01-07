@@ -40,7 +40,7 @@ class OrderController extends Controller
         return view('admin.order.index', compact('pendingOrders', 'approvedOrders', 'i1', 'i2'));
     }
 
-    public function show($id) 
+    public function show($id)
     {
         $order = Order::find($id);
         $order->service = Service::where('id', $order->serviceId)->first();
@@ -56,7 +56,7 @@ class OrderController extends Controller
 
     }
 
-    public function confirmOrder($id) 
+    public function confirmOrder($id)
     {
         $order = Order::find($id);
         $order->status = 2;

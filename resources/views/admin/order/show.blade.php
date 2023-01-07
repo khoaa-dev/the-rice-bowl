@@ -88,6 +88,7 @@
                     </div>
                     <div class="form-group d-flex justify-content-end">
                         <button type="submit" class="btn btn-primary mr-4">Duyệt đơn hàng</button>
+                        <button type="submit" class="btn btn-danger mr-4">Từ chối duyệt</button>
                     </div>
                     </form>
                 </div>
