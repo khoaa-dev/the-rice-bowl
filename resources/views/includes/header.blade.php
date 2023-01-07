@@ -54,8 +54,9 @@
                                     {{ __('Trang quản trị') }}
                                 </a>
                             @endif
-                            
-                            <a class="dropdown-item" href="{{ route('profile') }}" style="font-family: 'Josefin Sans'; font-size: 18px">
+
+                            <a class="dropdown-item" href="{{ route('profile') }}"
+                                style="font-family: 'Josefin Sans'; font-size: 18px">
                                 {{ __('Thông tin cá nhân') }}
                             </a>
 
@@ -89,27 +90,101 @@
                                                 src="{{ asset('public/front-end/images/bell.png') }}">
                                             <span
                                                 style="font-family: 'Josefin Sans';border-radius: 20px;margin-bottom: 10px;margin-left: -12px;"
-                                                class="badge badge-notification bg-danger">5</span>
+                                                class="badge badge-notification bg-danger">{{ Session::get('orderCount') }}</span>
                                         </div>
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-end">
-                                        <li class="nav-item" style="width:200px">
-                                            {{-- <a class="dropdown-item">
-                                                <span class="image"><img style="width:50px; height:50px"
-                                                        src="{{ asset('public/front-end/images/checked.png') }}"
-                                                        alt="Profile Image" /></span>
-                                                <span>
-                                                    <span style="font-weight: bold !important">hello</span>
-                                                    <span class="time" style="font-weight: normal !important">5m
-                                                        trước</span>
-                                                </span>
-                                                <br>
-                                                <span class="message"
-                                                    style="color: #a11425 !important; font-style: italic; !important">
-                                                    Có đơn hàng mới đang chờ duyệt!
-                                                </span>
-                                            </a> --}}
-                                        </li>
+                                        @foreach (Session::get('orderLists') as $orderItem)
+                                            <li class="nav-item" style="background-color: #111618; width: fit-content;">
+                                                @if ($orderItem->status == 2)
+                                                    <a class="dropdown-item"
+                                                        href="{{ route('getOrder', $orderItem->id) }}">
+
+                                                        <span class="image"><img
+                                                                src="{{ asset('public/front-end/images/received.png') }}"
+                                                                style="width: 40px !important" alt="Profile Image" /></span>
+                                                        <span
+                                                            style="/* margin-left: 30px; */font-weight: 700;color: #4db144;font-family: 'Josefin Sans'; font-size: 16px">Đơn
+                                                            hàng đã được duyệt</span>
+                                                        <br>
+                                                        <span>
+                                                            <span class="message"
+                                                                style="color: #ffffff !important; font-family: 'Josefin Sans'; font-size: 16px">
+                                                                Vào thanh toán ngay!
+                                                            </span>
+                                                            <span class="time"
+                                                                style="font-weight: normal !important; margin-left: 15px; font-family: 'Josefin Sans'; font-size: 16px">
+                                                                <?php
+                                                                date_default_timezone_set('Asia/Ho_Chi_Minh');
+                                                                $to = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', date('Y-m-d H:i:s'));
+                                                                $from = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $orderItem->updated_at);
+
+                                                                $result_in_seconds = $to->diffInSeconds($from);
+                                                                $result_in_minutes = $to->diffInMinutes($from);
+                                                                $result_in_hours = $to->diffInHours($from);
+                                                                $result_in_days = $to->diffInDays($from);
+                                                                $result_in_months = $to->diffInMonths($from);
+
+                                                                if ($result_in_seconds < 60) {
+                                                                    echo $result_in_seconds . 's trước';
+                                                                } elseif ($result_in_minutes < 60) {
+                                                                    echo $result_in_minutes . 'mn trước';
+                                                                } elseif ($result_in_hours < 24) {
+                                                                    echo $result_in_hours . 'h trước';
+                                                                } elseif ($result_in_days < 32) {
+                                                                    echo $result_in_days . 'd trước';
+                                                                } else {
+                                                                    echo $result_in_months . 'm trước';
+                                                                }
+                                                                ?>
+                                                            </span>
+                                                        </span>
+                                                    @else
+                                                        <span class="image"><img
+                                                                src="{{ asset('public/front-end/images/end-of-life-product.png') }}"
+                                                                style="width: 40px !important"
+                                                                alt="Profile Image" /></span>
+                                                        <span
+                                                            style="/* margin-left: 30px; */font-weight: 700;color: #db5050;font-family: 'Josefin Sans'; font-size: 16px">Đơn
+                                                            hàng đã bị từ chối</span>
+                                                        <br>
+                                                        <span>
+                                                            <span class="message"
+                                                                style="color: #ffffff !important; font-family: 'Josefin Sans'; font-size: 16px">
+                                                                Vào lòng kiểm tra lại!
+                                                            </span>
+                                                            <span class="time"
+                                                                style="font-weight: normal !important; margin-left: 15px; font-family: 'Josefin Sans'; font-size: 16px">
+                                                                <?php
+                                                                date_default_timezone_set('Asia/Ho_Chi_Minh');
+                                                                $to = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', date('Y-m-d H:i:s'));
+                                                                $from = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $orderItem->updated_at);
+
+                                                                $result_in_seconds = $to->diffInSeconds($from);
+                                                                $result_in_minutes = $to->diffInMinutes($from);
+                                                                $result_in_hours = $to->diffInHours($from);
+                                                                $result_in_days = $to->diffInDays($from);
+                                                                $result_in_months = $to->diffInMonths($from);
+
+                                                                if ($result_in_seconds < 60) {
+                                                                    echo $result_in_seconds . 's trước';
+                                                                } elseif ($result_in_minutes < 60) {
+                                                                    echo $result_in_minutes . 'mn trước';
+                                                                } elseif ($result_in_hours < 24) {
+                                                                    echo $result_in_hours . 'h trước';
+                                                                } elseif ($result_in_days < 32) {
+                                                                    echo $result_in_days . 'd trước';
+                                                                } else {
+                                                                    echo $result_in_months . 'm trước';
+                                                                }
+                                                                ?>
+                                                            </span>
+                                                        </span>
+
+                                                    </a>
+                                                @endif
+                                            </li>
+                                        @endforeach
                                     </ul>
                                 </div>
                             </li>
