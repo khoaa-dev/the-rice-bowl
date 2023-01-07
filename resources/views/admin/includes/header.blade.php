@@ -10,12 +10,12 @@
                     <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown"
                         data-toggle="dropdown" aria-expanded="false"
                         style="font-size: 16px !important;font-weight: bold !important; color: #254b97 !important;">
-                        <img src="{{ asset('public/front-end/images/ava_admin.jpg') }}" alt="">Admin
+                        <img src="{{ asset('public/front-end/images/' . Auth::user()->avatarUrl) }}" alt="">{{Auth::user()->fullName}}
                     </a>
                     <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="javascript:;"> Thông tin cá nhân</a>
                         <a class="dropdown-item" href="javascript:;">Trợ giúp</a>
-                        <a class="dropdown-item" href="login.html"><i class="fa fa-sign-out pull-right"></i> Đăng
+                        <a class="dropdown-item" href="{{route('adminLogout')}}"><i class="fa fa-sign-out pull-right"></i> Đăng
                             xuất</a>
                     </div>
                 </li>
