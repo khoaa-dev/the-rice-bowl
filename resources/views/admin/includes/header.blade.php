@@ -31,7 +31,7 @@
                         style="position: absolute;transform: translate3d(-139px, 35px, 0px) !important;top: 0px;left: 0px;will-change: transform;">
                         @foreach (Session::get('orderLists') as $orderItem)
                             <li class="nav-item">
-                                <a class="dropdown-item">
+                                <a class="dropdown-item" href="{{ route('getListOrder') }}">
                                     <span class="image"><img
                                             src="{{ asset('public/front-end/images/' . $orderItem->avatarUrl) }}"
                                             alt="Profile Image" /></span>
