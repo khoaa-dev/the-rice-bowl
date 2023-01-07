@@ -1,3 +1,9 @@
+<style>
+    .dropdown-item-1:hover .notify-description>.message1 {
+        color: red !important;
+
+    }
+</style>
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light m-0 p-4" id="ftco-navbar">
     <div class="container">
         <a class="navbar-brand" href="{{ route('home') }}" style="font-size: 20px; line-height: 25px"><span
@@ -97,91 +103,108 @@
                                         @foreach (Session::get('orderLists') as $orderItem)
                                             <li class="nav-item" style="background-color: #111618; width: fit-content;">
                                                 @if ($orderItem->status == 2)
-                                                    <a class="dropdown-item"
+                                                    <a class="dropdown-item-1"
                                                         href="{{ route('getOrder', $orderItem->id) }}">
+                                                        <div class="container d-flex"
+                                                            style="padding-bottom: 10px; border-bottom: 1px solid white;">
+                                                            <div>
+                                                                <span class="image"><img
+                                                                        src="{{ asset('public/front-end/images/received.png') }}"
+                                                                        style="width: 40px !important; margin-left: -20px"
+                                                                        alt="Profile Image" /></span>
+                                                            </div>
+                                                            <div>
+                                                                <span class="notify-description">
+                                                                    {{-- <span class="message1"
+                                                                        style="color: #ffffff !important; font-family: 'Josefin Sans'; font-size: 16px">
+                                                                        Vào thanh toán ngay!
+                                                                    </span> --}}
+                                                                    <span
+                                                                        style="margin-left: 15px; font-weight: 700;color: #4db144;font-family: 'Josefin Sans'; font-size: 16px">Đơn
+                                                                        hàng đã được duyệt
+                                                                    </span>
+                                                                    <br>
+                                                                    <span class="time"
+                                                                        style="font-weight: normal !important; margin-left: 15px; font-family: 'Josefin Sans'; font-size: 16px; color: #747474 !important">
+                                                                        <?php
+                                                                        date_default_timezone_set('Asia/Ho_Chi_Minh');
+                                                                        $to = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', date('Y-m-d H:i:s'));
+                                                                        $from = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $orderItem->updated_at);
 
-                                                        <span class="image"><img
-                                                                src="{{ asset('public/front-end/images/received.png') }}"
-                                                                style="width: 40px !important" alt="Profile Image" /></span>
-                                                        <span
-                                                            style="/* margin-left: 30px; */font-weight: 700;color: #4db144;font-family: 'Josefin Sans'; font-size: 16px">Đơn
-                                                            hàng đã được duyệt</span>
-                                                        <br>
-                                                        <span>
-                                                            <span class="message"
-                                                                style="color: #ffffff !important; font-family: 'Josefin Sans'; font-size: 16px">
-                                                                Vào thanh toán ngay!
-                                                            </span>
-                                                            <span class="time"
-                                                                style="font-weight: normal !important; margin-left: 15px; font-family: 'Josefin Sans'; font-size: 16px">
-                                                                <?php
-                                                                date_default_timezone_set('Asia/Ho_Chi_Minh');
-                                                                $to = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', date('Y-m-d H:i:s'));
-                                                                $from = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $orderItem->updated_at);
+                                                                        $result_in_seconds = $to->diffInSeconds($from);
+                                                                        $result_in_minutes = $to->diffInMinutes($from);
+                                                                        $result_in_hours = $to->diffInHours($from);
+                                                                        $result_in_days = $to->diffInDays($from);
+                                                                        $result_in_months = $to->diffInMonths($from);
 
-                                                                $result_in_seconds = $to->diffInSeconds($from);
-                                                                $result_in_minutes = $to->diffInMinutes($from);
-                                                                $result_in_hours = $to->diffInHours($from);
-                                                                $result_in_days = $to->diffInDays($from);
-                                                                $result_in_months = $to->diffInMonths($from);
-
-                                                                if ($result_in_seconds < 60) {
-                                                                    echo $result_in_seconds . 's trước';
-                                                                } elseif ($result_in_minutes < 60) {
-                                                                    echo $result_in_minutes . 'mn trước';
-                                                                } elseif ($result_in_hours < 24) {
-                                                                    echo $result_in_hours . 'h trước';
-                                                                } elseif ($result_in_days < 32) {
-                                                                    echo $result_in_days . 'd trước';
-                                                                } else {
-                                                                    echo $result_in_months . 'm trước';
-                                                                }
-                                                                ?>
-                                                            </span>
-                                                        </span>
+                                                                        if ($result_in_seconds < 60) {
+                                                                            echo $result_in_seconds . ' giây trước';
+                                                                        } elseif ($result_in_minutes < 60) {
+                                                                            echo $result_in_minutes . ' phút trước';
+                                                                        } elseif ($result_in_hours < 24) {
+                                                                            echo $result_in_hours . ' giờ trước';
+                                                                        } elseif ($result_in_days < 32) {
+                                                                            echo $result_in_days . ' ngày trước';
+                                                                        } else {
+                                                                            echo $result_in_months . ' tháng trước';
+                                                                        }
+                                                                        ?>
+                                                                    </span>
+                                                                </span>
+                                                            </div>
+                                                        </div>
                                                     @else
-                                                        <span class="image"><img
-                                                                src="{{ asset('public/front-end/images/end-of-life-product.png') }}"
-                                                                style="width: 40px !important"
-                                                                alt="Profile Image" /></span>
-                                                        <span
-                                                            style="/* margin-left: 30px; */font-weight: 700;color: #db5050;font-family: 'Josefin Sans'; font-size: 16px">Đơn
-                                                            hàng đã bị từ chối</span>
-                                                        <br>
-                                                        <span>
-                                                            <span class="message"
-                                                                style="color: #ffffff !important; font-family: 'Josefin Sans'; font-size: 16px">
-                                                                Vào lòng kiểm tra lại!
-                                                            </span>
-                                                            <span class="time"
-                                                                style="font-weight: normal !important; margin-left: 15px; font-family: 'Josefin Sans'; font-size: 16px">
-                                                                <?php
-                                                                date_default_timezone_set('Asia/Ho_Chi_Minh');
-                                                                $to = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', date('Y-m-d H:i:s'));
-                                                                $from = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $orderItem->updated_at);
+                                                        <a class="dropdown-item-1"
+                                                            href="{{ route('getOrder', $orderItem->id) }}">
+                                                            <div class="container d-flex"
+                                                                style="padding-bottom: 10px; border-bottom: 1px solid white;">
+                                                                >
+                                                                <div>
+                                                                    <span class="image"><img
+                                                                            src="{{ asset('public/front-end/images/end-of-life-product.png') }}"
+                                                                            style="width: 40px !important; margin-left: -20px"
+                                                                            alt="Profile Image" /></span>
+                                                                </div>
+                                                                <div>
+                                                                    <span class="notify-description">
+                                                                        {{-- <span class="message1"
+                                                                            style="color: #ffffff !important; font-family: 'Josefin Sans'; font-size: 16px">
+                                                                            Vào thanh toán ngay!
+                                                                        </span> --}}
+                                                                        <span
+                                                                            style="margin-left: 15px; font-weight: 700;color: #d4473d;font-family: 'Josefin Sans'; font-size: 16px; color: #747474 !important">Đơn
+                                                                            hàng đã bị từ chối
+                                                                        </span>
+                                                                        <br>
+                                                                        <span class="time"
+                                                                            style="font-weight: normal !important; margin-left: 15px; font-family: 'Josefin Sans'; font-size: 16px">
+                                                                            <?php
+                                                                            date_default_timezone_set('Asia/Ho_Chi_Minh');
+                                                                            $to = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', date('Y-m-d H:i:s'));
+                                                                            $from = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $orderItem->updated_at);
 
-                                                                $result_in_seconds = $to->diffInSeconds($from);
-                                                                $result_in_minutes = $to->diffInMinutes($from);
-                                                                $result_in_hours = $to->diffInHours($from);
-                                                                $result_in_days = $to->diffInDays($from);
-                                                                $result_in_months = $to->diffInMonths($from);
+                                                                            $result_in_seconds = $to->diffInSeconds($from);
+                                                                            $result_in_minutes = $to->diffInMinutes($from);
+                                                                            $result_in_hours = $to->diffInHours($from);
+                                                                            $result_in_days = $to->diffInDays($from);
+                                                                            $result_in_months = $to->diffInMonths($from);
 
-                                                                if ($result_in_seconds < 60) {
-                                                                    echo $result_in_seconds . 's trước';
-                                                                } elseif ($result_in_minutes < 60) {
-                                                                    echo $result_in_minutes . 'mn trước';
-                                                                } elseif ($result_in_hours < 24) {
-                                                                    echo $result_in_hours . 'h trước';
-                                                                } elseif ($result_in_days < 32) {
-                                                                    echo $result_in_days . 'd trước';
-                                                                } else {
-                                                                    echo $result_in_months . 'm trước';
-                                                                }
-                                                                ?>
-                                                            </span>
-                                                        </span>
-
-                                                    </a>
+                                                                            if ($result_in_seconds < 60) {
+                                                                                echo $result_in_seconds . ' giây trước';
+                                                                            } elseif ($result_in_minutes < 60) {
+                                                                                echo $result_in_minutes . ' phút trước';
+                                                                            } elseif ($result_in_hours < 24) {
+                                                                                echo $result_in_hours . ' giờ trước';
+                                                                            } elseif ($result_in_days < 32) {
+                                                                                echo $result_in_days . ' ngày trước';
+                                                                            } else {
+                                                                                echo $result_in_months . ' tháng trước';
+                                                                            }
+                                                                            ?>
+                                                                        </span>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
                                                 @endif
                                             </li>
                                         @endforeach
