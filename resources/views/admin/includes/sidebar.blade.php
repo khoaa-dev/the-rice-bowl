@@ -14,11 +14,11 @@
         <!-- menu profile quick info -->
         <div class="profile clearfix">
             <div class="profile_pic">
-                <img src="{{ asset('public/front-end/images/ava_admin.jpg') }}" alt="..." class="img-circle profile_img">
+                <img src="{{ asset('public/front-end/images/' . Auth::user()->avatarUrl) }}" alt="..." class="img-circle profile_img">
             </div>
             <div class="profile_info">
                 <span style="font-style: italic !important; font-size: 16px !important;">Xin chào,</span>
-                <h2 font-size: 16px !important;>Admin</h2>
+                <h2 font-size: 16px !important;>{{Auth::user()->fullName}}</h2>
             </div>
         </div>
         <!-- sidebar menu -->

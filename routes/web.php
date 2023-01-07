@@ -13,6 +13,7 @@ use App\Http\Controllers\client\PayPalController;
 use App\Http\Controllers\client\UserController;
 use App\Http\Controllers\client\AddressController;
 
+use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\FoodController as AdminFoodController;
 use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 
@@ -97,80 +98,91 @@ Route::middleware('auth')->group(function () {
 
 // Admin routes
 Route::prefix('admin')->group(function () {
-    Route::get('/home', [AdminController::class, 'index'])->name('admin');
+    Route::get('/login', [AdminAuthController::class, 'getLogin'])->name('adminLogin');
 
-    Route::post('/filter-by-date', 'AdminController@filter_by_date');
-    Route::post('/filter-by-date1', 'AdminController@filter_by_date1');
+    Route::post('/login', [AdminAuthController::class, 'postLogin'])->name('adminLoginPost');
 
-    Route::get('/form-validation', function () {
-        return view('admin.form_validation');
+    Route::middleware(['isAdmin'])->group(function () {
+        Route::get('/home', [AdminController::class, 'index'])->name('adminHome');
+
+        Route::get('/', [AdminController::class, 'index'])->name('adminHomeNoSlug');
+
+        Route::get('/', [AdminAuthController::class, 'adminLogout'])->name('adminLogout');
+
+        Route::post('/filter-by-date', [AdminController::class, 'filter_by_date']);
+
+        Route::post('/filter-by-date1', [AdminController::class, 'filter_by_date1']);
+
+        Route::get('/form-validation', function () {
+            return view('admin.form_validation');
+        });
+
+        Route::get('/form-wizards', function () {
+            return view('admin.form_wizards');
+        });
+
+        Route::get('/form', function () {
+            return view('admin.form');
+        });
+
+        Route::get('/icons', function () {
+            return view('admin.icons');
+        });
+
+        Route::get('/glyphicons', function () {
+            return view('admin.glyphicons');
+        });
+
+        Route::get('/invoice', function () {
+            return view('admin.invoice');
+        });
+
+        Route::get('/profile', function () {
+            return view('admin.profile');
+        });
+
+        Route::get('/projects', function () {
+            return view('admin.projects');
+        });
+
+        Route::get('/project-detail', function () {
+            return view('admin.project_detail');
+        });
+
+        Route::get('/contacts', function () {
+            return view('admin.contacts');
+        });
+
+        Route::get('/tables', function () {
+            return view('admin.tables');
+        });
+
+        Route::get('/tables-dynamic', function () {
+            return view('admin.tables_dynamic');
+        });
+
+        //Food Management
+        Route::get('/foodManagement', [AdminFoodController::class, 'index'])->name('foodManagement');
+
+        Route::get('/add-food', [AdminFoodController::class, 'create'])->name('createFood');
+
+        Route::post('/add-food', [AdminFoodController::class, 'store'])->name('add-food');
+
+        Route::get('/edit-food/{id}', [AdminFoodController::class, 'edit']);
+
+        Route::post('/update-food/{id}', [AdminFoodController::class, 'update']);
+
+        Route::get('/delete-food/{id}', [AdminFoodController::class, 'destroy']);
+
+        //Order Management
+        Route::get('/orders', [AdminOrderController::class, 'index'])->name('getListOrder');
+
+        Route::get('/orders/{id}', [AdminOrderController::class, 'show'])->name('showOrder');
+
+        Route::post('/orders/{id}/confirm', [AdminOrderController::class, 'confirmOrder'])->name('adminConfirmOrder');
+
+        // ADMIN
+        // Service Category
+        Route::resource('service', 'App\Http\Controllers\Admin\ServiceController');
     });
-
-    Route::get('/form-wizards', function () {
-        return view('admin.form_wizards');
-    });
-
-    Route::get('/form', function () {
-        return view('admin.form');
-    });
-
-    Route::get('/icons', function () {
-        return view('admin.icons');
-    });
-
-    Route::get('/glyphicons', function () {
-        return view('admin.glyphicons');
-    });
-
-    Route::get('/invoice', function () {
-        return view('admin.invoice');
-    });
-
-    Route::get('/profile', function () {
-        return view('admin.profile');
-    });
-
-    Route::get('/projects', function () {
-        return view('admin.projects');
-    });
-
-    Route::get('/project-detail', function () {
-        return view('admin.project_detail');
-    });
-
-    Route::get('/contacts', function () {
-        return view('admin.contacts');
-    });
-
-    Route::get('/tables', function () {
-        return view('admin.tables');
-    });
-
-    Route::get('/tables-dynamic', function () {
-        return view('admin.tables_dynamic');
-    });
-
-    //Food Management
-    Route::get('/foodManagement', [AdminFoodController::class, 'index'])->name('foodManagement');
-
-    Route::get('/add-food', [AdminFoodController::class, 'create'])->name('createFood');
-
-    Route::post('/add-food', [AdminFoodController::class, 'store'])->name('add-food');
-
-    Route::get('/edit-food/{id}', [AdminFoodController::class, 'edit']);
-
-    Route::post('/update-food/{id}', [AdminFoodController::class, 'update']);
-
-    Route::get('/delete-food/{id}', [AdminFoodController::class, 'destroy']);
-
-    //Order Management
-    Route::get('/orders', [AdminOrderController::class, 'index'])->name('getListOrder');
-
-    Route::get('/orders/{id}', [AdminOrderController::class, 'show'])->name('showOrder');
-
-    Route::post('/orders/{id}/confirm', [AdminOrderController::class, 'confirmOrder'])->name('adminConfirmOrder');
-
-    // ADMIN
-    // Service Category
-    Route::resource('service', 'App\Http\Controllers\Admin\ServiceController');
 });
