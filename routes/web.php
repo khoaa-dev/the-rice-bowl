@@ -102,16 +102,16 @@ Route::prefix('admin')->group(function () {
 
     Route::post('/login', [AdminAuthController::class, 'postLogin'])->name('adminLoginPost');
 
+    Route::post('/filter-by-date', [AdminController::class, 'filter_by_date'])->name('filter-by-date');
+
+    Route::post('/filter-by-service', [AdminController::class, 'filter_by_service'])->name('filter-by-service');
+
     Route::middleware(['isAdmin'])->group(function () {
         Route::get('/home', [AdminController::class, 'index'])->name('adminHome');
 
         Route::get('/', [AdminController::class, 'index'])->name('adminHomeNoSlug');
 
         Route::get('/', [AdminAuthController::class, 'adminLogout'])->name('adminLogout');
-
-        Route::post('/filter-by-date', [AdminController::class, 'filter_by_date']);
-
-        Route::post('/filter-by-date1', [AdminController::class, 'filter_by_date1']);
 
         Route::get('/form-validation', function () {
             return view('admin.form_validation');
