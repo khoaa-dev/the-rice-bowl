@@ -191,6 +191,7 @@
         <div class="col-md-3" style="padding-right: 80px;color: rgba(246, 12, 12, 0.794)">
             <h1 style="text-align: center; margin-bottom: 50px; color: #a7501f">Đặt ngay</h1>
             <form method="POST" action="{{ route('createOrder') }}">
+                <?php date_default_timezone_set('Asia/Ho_Chi_Minh'); ?>
                 @csrf
                 <div class="form-row">
                     <div class="form-group row col-12">

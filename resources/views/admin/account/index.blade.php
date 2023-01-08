@@ -2,79 +2,79 @@
 
 @section('css')
 <style>
-.tabs {
-    display: flex;
-    position: relative;
-}
+    .tabs {
+        display: flex;
+        position: relative;
+    }
 
-.tabs .line {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 0;
-    height: 6px;
-    border-radius: 15px;
-    background-color: #1959ad;
-    transition: all 0.2s ease;
-}
+    .tabs .line {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 6px;
+        border-radius: 15px;
+        background-color: #1959ad;
+        transition: all 0.2s ease;
+    }
 
-.tab-item {
-    /* min-width: 80px; */
-    padding: 16px 20px 11px 20px;
-    font-size: 20px;
-    text-align: center;
-    color: #c23564;
-    background-color: #fff;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    border-bottom: 5px solid transparent;
-    opacity: 0.6;
-    cursor: pointer;
-    transition: all 0.5s ease;
-}
+    .tab-item {
+        /* min-width: 80px; */
+        padding: 16px 20px 11px 20px;
+        font-size: 20px;
+        text-align: center;
+        color: #c23564;
+        background-color: #fff;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        border-bottom: 5px solid transparent;
+        opacity: 0.6;
+        cursor: pointer;
+        transition: all 0.5s ease;
+    }
 
-.tab-icon {
-    font-size: 24px;
-    width: 32px;
-    position: relative;
-    top: 2px;
-}
+    .tab-icon {
+        font-size: 24px;
+        width: 32px;
+        position: relative;
+        top: 2px;
+    }
 
-.tab-item:hover {
-    opacity: 1;
-    background-color: rgba(194, 53, 100, 0.05);
-    border-color: rgba(194, 53, 100, 0.1);
-    text-decoration: none;
-    color: #be2424;
-}
+    .tab-item:hover {
+        opacity: 1;
+        background-color: rgba(194, 53, 100, 0.05);
+        border-color: rgba(194, 53, 100, 0.1);
+        text-decoration: none;
+        color: #be2424;
+    }
 
-.tab-item.active {
-    opacity: 1;
-}
+    .tab-item.active {
+        opacity: 1;
+    }
 
-.tab-content {
-    padding: 28px 0;
-    width: 100%;
-}
+    .tab-content {
+        padding: 28px 0;
+        width: 100%;
+    }
 
-.tab-pane {
-    color: #333;
-    display: none;
-}
+    .tab-pane {
+        color: #333;
+        display: none;
+    }
 
-.tab-pane.active {
-    display: block;
-}
+    .tab-pane.active {
+        display: block;
+    }
 
-.tab-pane h2 {
-    font-size: 24px;
-    margin-bottom: 8px;
-}
+    .tab-pane h2 {
+        font-size: 24px;
+        margin-bottom: 8px;
+    }
 </style>
 @endsection
 
 @section('content')
-<div class="right_col" role="main" style="min-height: 1000px">
+<div class="right_col" role="main" style="min-height: 2000px !important">
     <div class="col-md-12">
         <h1 class="text-center mtb-20 w-100">QUẢN LÝ TÀI KHOẢN</h1><br>
         <ul class="nav nav-tabs nav-tab tabs d-flex text-center col-12" style="background: #eaeaea">
@@ -161,31 +161,19 @@
         </div>
 
         <div class="tab-pane">
-            <div class="row d-flex flex-row justify-content-between m-3">
-                <div class="searh-box ">
-                    <label for="search" class="mr-1" style="font-size: 20px">Nhập tên: </label>
-                    <input type="text" name="search" id="search" class="" style="font-size: 20px">
-                    <button type="submit" class="btn btn-primary">Tìm kiếm</button>
-                </div>
-
-                <div class="add-account-box">
-                    <button type="submit" class="btn btn-success" id="add-account-admin">Thêm tài khoản</button>
-                </div>
-            </div>
-
             <div class="row">
                 <div id="form-add-account-admin" class=" col-12" style="display: none">
                     <div class="col-12" style="font-size: 20px">
 
                         {{-- <form id="formAddAdmin">
-                          
-                      </form> --}}
+
+                        </form> --}}
 
                         <form action="" method="POST" id="form-add-account-admin">
                             @csrf
                             <div class="form-group row">
-                                <label for="admin_name"
-                                    class="col-md-6 col-form-label text-md-right">{{ __('Họ và tên') }}</label>
+                                <label for="admin_name" class="col-md-6 col-form-label text-md-right">{{ __('Họ và tên')
+                                    }}</label>
 
                                 <div class="col-md-6">
                                     <input id="admin_name" type="text"
@@ -201,8 +189,8 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="email"
-                                    class="col-md-6 col-form-label text-md-right">{{ __('E-Mail') }}</label>
+                                <label for="email" class="col-md-6 col-form-label text-md-right">{{ __('E-Mail')
+                                    }}</label>
 
                                 <div class="col-md-6">
                                     <input id="admin_email" type="email"
@@ -218,8 +206,8 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="phone"
-                                    class="col-md-6 col-form-label text-md-right">{{ __('Số điện thoại') }}</label>
+                                <label for="phone" class="col-md-6 col-form-label text-md-right">{{ __('Số điện thoại')
+                                    }}</label>
 
                                 <div class="col-md-6">
                                     <input id="admin_phone" type="number"
@@ -235,8 +223,8 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="password"
-                                    class="col-md-6 col-form-label text-md-right">{{ __('Password') }}</label>
+                                <label for="password" class="col-md-6 col-form-label text-md-right">{{ __('Password')
+                                    }}</label>
 
                                 <div class="col-md-6">
                                     <input id="admin_password" type="password"
@@ -252,8 +240,8 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="password-confirm"
-                                    class="col-md-6 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                                <label for="password-confirm" class="col-md-6 col-form-label text-md-right">{{
+                                    __('Confirm Password') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password" class="form-control"
@@ -287,7 +275,7 @@
             <div class="row">
                 <div class="x_panel">
                     <div class="p-2">
-                        <h2>Danh sách đơn khai báo</h2>
+                        <h2>Danh sách tài khoản</h2>
                     </div>
 
                     <div class="x_content">
@@ -326,86 +314,51 @@
 
                                 </tbody>
                             </table>
-
-                            <div class="d-flex justify-content-center">
-                                {{-- {{ $domesticGuests->links() }} --}}
-                            </div>
                         </div>
-
-
                     </div>
                 </div>
             </div>
-
-            <div class="row">
-                <div class="col-12">
-                    <!-- Modal -->
-                    {{-- <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                      <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                          <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLongTitle" style="color: red">Thông báo</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                          </button>
-                          </div>
-                          <div class="modal-body">
-                              <p>Bạn đã thêm tài khoản thành công</p>
-                          </div>
-                          <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btn-back-homepage"
-                              onclick="window.location.href = '{{ route('accountManagement')}}' ">Đồng ý</button>
-                </div>
-            </div>
         </div>
-    </div> --}}
-</div>
-</div>
-</div>
-</div>
-
-
+    </div>
 </div>
 @endsection
 
 @section('js')
 <script>
-// const $ = document.querySelector.bind(document);
-// const $$ = document.querySelectorAll.bind(document);
 
-const tabs = document.querySelectorAll('.tab-item');
-const panes = document.querySelectorAll('.tab-pane');
+    const tabs = document.querySelectorAll('.tab-item');
+    const panes = document.querySelectorAll('.tab-pane');
 
-const tabActive = document.querySelector('.tab-item.active');
-const line = document.querySelector('.tabs .line');
+    const tabActive = document.querySelector('.tab-item.active');
+    const line = document.querySelector('.tabs .line');
 
-line.style.left = tabActive.offsetLeft + 'px';
-line.style.width = tabActive.offsetWidth + 'px';
+    line.style.left = tabActive.offsetLeft + 'px';
+    line.style.width = tabActive.offsetWidth + 'px';
 
-tabs.forEach((tab, index) => {
-    const pane = panes[index];
+    tabs.forEach((tab, index) => {
+        const pane = panes[index];
 
-    tab.onclick = function() {
-        document.querySelector('.tab-item.active').classList.remove('active');
-        document.querySelector('.tab-pane.active').classList.remove('active');
+        tab.onclick = function() {
+            document.querySelector('.tab-item.active').classList.remove('active');
+            document.querySelector('.tab-pane.active').classList.remove('active');
 
-        line.style.left = this.offsetLeft + 'px';
-        line.style.width = this.offsetWidth + 'px';
+            line.style.left = this.offsetLeft + 'px';
+            line.style.width = this.offsetWidth + 'px';
 
-        this.classList.add('active');
-        pane.classList.add('active');
+            this.classList.add('active');
+            pane.classList.add('active');
+        }
+    });
+    const btnAddAccountAdmin = document.querySelector('#add-account-admin');
+    const btnCancleAddAccountAdmin = document.querySelector('#cancle-add-account-admin');
+
+    const addAccountAdminBox = document.querySelector('#form-add-account-admin');
+    btnAddAccountAdmin.onclick = function() {
+        addAccountAdminBox.style.display = "block";
     }
-});
-const btnAddAccountAdmin = document.querySelector('#add-account-admin');
-const btnCancleAddAccountAdmin = document.querySelector('#cancle-add-account-admin');
 
-const addAccountAdminBox = document.querySelector('#form-add-account-admin');
-btnAddAccountAdmin.onclick = function() {
-    addAccountAdminBox.style.display = "block";
-}
-
-btnCancleAddAccountAdmin.onclick = function() {
-    addAccountAdminBox.style.display = "none";
-}
+    btnCancleAddAccountAdmin.onclick = function() {
+        addAccountAdminBox.style.display = "none";
+    }
 </script>
 @endsection

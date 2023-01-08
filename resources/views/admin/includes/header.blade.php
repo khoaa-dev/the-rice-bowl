@@ -53,13 +53,13 @@
                                             if ($result_in_seconds < 60) {
                                                 echo $result_in_seconds . 's trước';
                                             } elseif ($result_in_minutes < 60) {
-                                                echo $result_in_minutes . 'mn trước';
+                                                echo $result_in_minutes . 'm trước';
                                             } elseif ($result_in_hours < 24) {
                                                 echo $result_in_hours . 'h trước';
                                             } elseif ($result_in_days < 32) {
                                                 echo $result_in_days . 'd trước';
                                             } else {
-                                                echo $result_in_months . 'm trước';
+                                                echo $result_in_months . 'mth trước';
                                             }
                                             ?>
                                         </span>
