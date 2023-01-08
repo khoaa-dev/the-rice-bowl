@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 
 use App\Models\Food;
 use App\Models\FoodCategory;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -18,7 +19,7 @@ class FoodController extends Controller
      */
     public function index()
     {
-        $foods = Food::paginate(7);
+        $foods = Food::orderBy('id', 'DESC')->paginate(10);
         foreach ($foods as $food) {
             $food->category = FoodCategory::where('id', $food->category_id)->first();
         }
@@ -127,7 +128,13 @@ class FoodController extends Controller
         if (Storage::exists($destination)) {
             Storage::delete($destination);
         }
-        $food->delete();
+
+        try {
+            $food->delete();
+        } catch (Exception $exception) {
+            return back()->with('status', 'Không thể xóa món ăn này!');
+        }
+
         return back()->with('status', 'Xóa món ăn thành công!');
     }
 }

@@ -55,15 +55,18 @@
                     <li>
                         <a><i class="fa fa-cutlery"></i> Món ăn <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="{{ URL::to('/admin/foodManagement') }}">Quản lý món ăn</a></li>
+                            <li><a href="{{ URL::to('/admin/food-management') }}">Quản lý món ăn</a></li>
                         </ul>
                     </li>
 
-                        <a><i class="fa fa-building-o"></i> Thực đơn <span class="fa fa-chevron-down"></span></a>
+                    <a><i class="fa fa-building-o"></i> Thực đơn <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li><a href="{{ URL::to('/admin/menu-management') }}">Quản lý thực đơn</a></li>
+                    </ul>
                     </li>
 
                     <li>
-                        <a><i class="fa fa-cube"></i> Đơn hàng <span class="fa fa-chevron-down"></span></a>
+                        <a><i class=" fa fa-cube"></i> Đơn hàng <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="{{ route('getListOrder') }}">Danh sách đơn hàng</a></li>
                         </ul>

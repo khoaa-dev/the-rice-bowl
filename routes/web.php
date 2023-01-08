@@ -15,6 +15,7 @@ use App\Http\Controllers\client\AddressController;
 
 use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\FoodController as AdminFoodController;
+use App\Http\Controllers\Admin\MenuController as AdminMenuController;
 use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 
 
@@ -181,8 +182,22 @@ Route::prefix('admin')->group(function () {
 
         Route::post('/orders/{id}/confirm', [AdminOrderController::class, 'confirmOrder'])->name('adminConfirmOrder');
 
-        // ADMIN
         // Service Category
         Route::resource('service', 'App\Http\Controllers\Admin\ServiceController');
+
+        Route::post('/orders/{id}/confirm', [AdminOrderController::class, 'confirmOrder'])->name('adminConfirmOrder');
+
+        //Menu Management
+        Route::get('/menu-management', [AdminMenuController::class, 'index'])->name('menu-management');
+
+        Route::get('/add-menu', [AdminMenuController::class, 'create'])->name('create-menu');
+
+        Route::post('/add-menu', [AdminMenuController::class, 'store'])->name('add-menu');
+
+        Route::get('/edit-menu/{id}', [AdminMenuController::class, 'edit'])->name('edit-menu');
+
+        Route::post('/update-menu/{id}', [AdminMenuController::class, 'update'])->name('update-menu');
+
+        Route::get('/delete-menu/{id}', [AdminMenuController::class, 'destroy']);
     });
 });
