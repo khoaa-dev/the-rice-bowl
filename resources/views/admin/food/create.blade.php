@@ -20,27 +20,27 @@
                     </h4>
                 </div>
                 <div class="card-body" style="font-size: 20px">
-                    <form action="{{ route('add-food') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('add-food') }}" method="POST" enctype="multipart/form-data" class="needs-validation">
 
                         @csrf
                         <div class="form-group">
                             <label for="name">Tên món ăn:</label>
-                            <input type="text" name="name" id="name" class="form-control">
+                            <input type="text" name="name" id="name" class="form-control" required>
                         </div>
 
                         <div class="form-group">
                             <label for="price">Giá:</label>
-                            <input type="number" name="price" id="price" class="form-control">
+                            <input type="number" name="price" id="price" class="form-control" required>
                         </div>
 
                         <div class="form-group">
                             <label for="image">Hình ảnh:</label>
-                            <input type="file" name="image" id="image" class="form-control">
+                            <input type="file" name="image" id="image" class="form-control" required>
                         </div>
 
                         <div class="form-group">
                             <label for="categoryId">Chọn danh mục:</label>
-                            <select name="categoryId" id="categoryId" class="custom-select">
+                            <select name="categoryId" id="categoryId" class="custom-select" required>
                                 @foreach ($categories as $category)
                                 <option class="p-2" value="{{ $category->id }}">{{ $category->name }}</option>
 

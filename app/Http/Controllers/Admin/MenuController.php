@@ -20,6 +20,7 @@ class MenuController extends Controller
     public function index()
     {
         $menus = Menu::orderBy('id', 'DESC')->paginate(10);
+        $i = 0;
 
         foreach ($menus as $menu) {
             $foods = array();
@@ -32,7 +33,7 @@ class MenuController extends Controller
             $menu->foods = implode(', ', $foods);
         }
 
-        return view('admin.menu.index')->with('menus', $menus);
+        return view('admin.menu.index')->with('menus', $menus)->with('i', $i);
     }
 
     /**

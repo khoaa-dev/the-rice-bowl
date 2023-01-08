@@ -8,56 +8,59 @@
 <div class="right_col row content" role="main">
     <div class="x_content col-11" style="margin-left: 20px">
 
-        <h3>Danh sách dịch vụ</h3>
-
         <div class="status">
             @if (session('status'))
             <h6 class="alert alert-success">{{ session('status') }}</h6>
             @endif
         </div>
 
-        <div class="table-responsive">
+        <h3>Danh sách dịch vụ</h3>
 
-            <a href="{{route('service.create')}}"><i class="fa fa-plus-square"></i></a>
-            <table class="table table-striped jambo_table bulk_action">
-                <thead>
-                    <tr class="headings">
-                        <th>STT</th>
-                        <th class="column-title">TÊN DỊCH VỤ </th>
-                        <th class="column-title">CHI TIẾT DỊCH VỤ </th>
-                        <th class="column-title no-link last">
-                            <span class="nobr">ACTION</span>
-                        </th>
-                        <th class="bulk-actions" colspan="7">
-                            <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions
-                                ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
-                        </th>
-                    </tr>
-                </thead>
+        <div class="row d-flex flex-row justify-content-between m-2">
+            <div class="add-account-box">
+                <a href="{{route('service.create')}}" class="btn btn-primary" id="add-account-admin">Thêm dịch vụ</a>
+            </div>
+        </div>
 
-                <tbody>
-                    <?php $i=1;?>
-                    @foreach ($data_all_services as $service)
-                    <tr class="even pointer">
-                        <td><?php echo $i++; ?></td>
-                        <th>{{ $service->name }}</th>
-                        <th style="width: 60%">{{ $service->detail }}</th>
-                        <th>
-                            <a href="{{route('service.edit', $service->id) }}">
-                                <i class="fa fa-edit"></i></a>
-                            <a href="{{ route('service.destroy', $service->id)}}">
-                                <i class="   fa fa-remove"></i>
-                            </a>
-                        </th>
-                    </tr>
-                    @endforeach
+        <div class="x_content">
+            <div class="table-responsive">
+                <table class="table table-striped jambo_table bulk_action">
+                    <thead>
+                        <tr class="headings">
+                            <th>STT</th>
+                            <th class="column-title">TÊN DỊCH VỤ </th>
+                            <th class="column-title">CHI TIẾT DỊCH VỤ </th>
+                            <th class="column-title no-link last">
+                                <span class="nobr">ACTION</span>
+                            </th>
+                            <th class="bulk-actions" colspan="7">
+                                <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions
+                                    ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
+                            </th>
+                        </tr>
+                    </thead>
 
-                </tbody>
+                    <tbody>
+                        <?php $i = 1; ?>
+                        @foreach ($services as $service)
+                        <tr class="even pointer">
+                            <td><?php echo $i++; ?></td>
+                            <th>{{ $service->name }}</th>
+                            <th style="width: 60%">{{ $service->detail }}</th>
+                            <th>
+                                <a href="{{ URL::to('admin/edit-service/'.$service->id) }}" class="btn btn-warning">Sửa</a>
+                                <a href="{{ URL::to('admin/delete-service/'.$service->id) }}" class="btn btn-danger" id="btn-view-order">Xóa</a>
+                            </th>
+                        </tr>
+                        @endforeach
 
-            </table>
+                    </tbody>
 
-            <div class="d-flex justify-content-center">
-                {{ $service->links }}
+                </table>
+
+                <div class="d-flex justify-content-center">
+                    {{ $services->links() }}
+                </div>
             </div>
         </div>
     </div>

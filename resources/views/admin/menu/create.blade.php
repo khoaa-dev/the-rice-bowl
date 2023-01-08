@@ -37,10 +37,6 @@
                                 </option>
                                 @endforeach
                             </select>
-
-                            <div class="invalid-feedback">
-                                Please provide a valid city.
-                            </div>
                         </div>
 
                         <div class="form-group d-flex justify-content-end">
