@@ -17,6 +17,7 @@ use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\FoodController as AdminFoodController;
 use App\Http\Controllers\Admin\MenuController as AdminMenuController;
 use App\Http\Controllers\Admin\OrderController as AdminOrderController;
+use App\Http\Controllers\Admin\ServiceController as AdminServiceController;
 
 
 /*
@@ -163,9 +164,9 @@ Route::prefix('admin')->group(function () {
         });
 
         //Food Management
-        Route::get('/foodManagement', [AdminFoodController::class, 'index'])->name('foodManagement');
+        Route::get('/food-management', [AdminFoodController::class, 'index'])->name('food-management');
 
-        Route::get('/add-food', [AdminFoodController::class, 'create'])->name('createFood');
+        Route::get('/add-food', [AdminFoodController::class, 'create'])->name('create-food');
 
         Route::post('/add-food', [AdminFoodController::class, 'store'])->name('add-food');
 
@@ -199,5 +200,18 @@ Route::prefix('admin')->group(function () {
         Route::post('/update-menu/{id}', [AdminMenuController::class, 'update'])->name('update-menu');
 
         Route::get('/delete-menu/{id}', [AdminMenuController::class, 'destroy']);
+
+        //Service Management
+        Route::get('/service-management', [AdminServiceController::class, 'index'])->name('service-management');
+
+        Route::get('/add-service', [AdminServiceController::class, 'create'])->name('create-service');
+
+        Route::post('/add-service', [AdminServiceController::class, 'store'])->name('add-service');
+
+        Route::get('/edit-service/{id}', [AdminServiceController::class, 'edit'])->name('edit-service');
+
+        Route::post('/update-service/{id}', [AdminServiceController::class, 'update'])->name('update-service');
+
+        Route::get('/delete-service/{id}', [AdminServiceController::class, 'destroy']);
     });
 });

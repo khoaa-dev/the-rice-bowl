@@ -37,7 +37,7 @@
 
                             @foreach ($menus as $menu)
                             <tr class="even pointer">
-                                <td class="align-items-center ">{{ $menu->id }}</td>
+                                <td class="align-items-center ">{{ ++$i }}</td>
                                 <td class="align-items-center ">{{ $menu->name }}</td>
                                 <td class="align-items-center ">{{ $menu->foods }}</td>
                                 <td class=" last">
