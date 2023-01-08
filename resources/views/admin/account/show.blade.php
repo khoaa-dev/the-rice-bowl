@@ -15,7 +15,7 @@
             </div>
             <div class="card">
                 <div class="card-header">
-                    <h4 class="d-flex justify-content-between"> Chỉnh sửa tai khoan
+                    <h4 class="d-flex justify-content-between"> Chỉnh sửa tài khoản
                         <a href="{{URL::to('/admin/accounts')}}" class="btn btn-primary float-end">Trở lại trang
                             trước</a>
                     </h4>
@@ -26,7 +26,7 @@
 
                         @csrf
                         <div class="form-group">
-                            <label for="fullName">Ho va ten:</label>
+                            <label for="fullName">Họ và tên:</label>
                             <input type="text" name="fullName" id="fullName" class="form-control"
                                 value="{{$user->fullName}}">
                         </div>
@@ -35,15 +35,15 @@
                             <input type="text" name="email" id="email" class="form-control" value="{{$user->email}}">
                         </div>
                         <div class="form-group">
-                            <label for="phone">so dien thoai:</label>
+                            <label for="phone">Số điện thoại:</label>
                             <input type="text" name="phone" id="phone" class="form-control" value="{{$user->phone}}">
                         </div>
                         <div class="form-group">
-                            <label for="dob">Ngay sinh:</label>
+                            <label for="dob">Ngày sinh:</label>
                             <input type="text" name="dob" id="dob" class="form-control" value="{{$user->dob}}">
                         </div>
                         <div class="form-group">
-                            <label for="image">Anh dai dien:</label>
+                            <label for="image">Ảnh đại diện:</label>
                             <input type="file" name="avatarUrl" id="avatarUrl" class="form-control">
                             @if ($user->avatarUrl != NULL)
                             <img src="{{ asset('public/front-end/images/' . $user->avatarUrl) }}" alt="" width="70px"
