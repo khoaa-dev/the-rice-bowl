@@ -24,7 +24,7 @@
     <link href="{{ asset('public/front-end/admin/vendors/iCheck/skins/flat/green.css') }}" rel="stylesheet">
     <!-- Custom Theme Style -->
     <link href="{{ asset('public/front-end/admin/build/css/custom.min.css') }}" rel="stylesheet">
-
+    
     @yield('css')
 </head>
 

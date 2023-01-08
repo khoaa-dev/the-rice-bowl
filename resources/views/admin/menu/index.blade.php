@@ -50,7 +50,7 @@
                         </tbody>
                     </table>
 
-                    <div class="d-flex justify-content-center">
+                    <div style="text-align: center">
                         {{ $menus->links() }}
                     </div>
                 </div>

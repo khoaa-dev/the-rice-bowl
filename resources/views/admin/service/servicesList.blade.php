@@ -2,6 +2,7 @@
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('public/front-end/css/service.css') }}">
+
 @endsection
 
 @section('content')
@@ -58,7 +59,7 @@
 
                 </table>
 
-                <div class="d-flex justify-content-center">
+                <div style="text-align: center">
                     {{ $services->links() }}
                 </div>
             </div>
