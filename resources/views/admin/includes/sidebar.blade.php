@@ -42,16 +42,9 @@
                         <a><i class="fa fa-life-ring"></i> Dịch vụ <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="{{route('service.index')}}">Danh sách dịch vụ</a></li>
-                            <li><a href="{{route('service.create')}}">Thêm dịch vụ</a></li>
                         </ul>
                     </li>
 
-                    <li>
-                        <a><i class="fa fa-gift"></i> Gói ưu đãi <span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                            <li><a href="#">Danh sách gói ưu đãi</a></li>
-                        </ul>
-                    </li>
                     <li>
                         <a><i class="fa fa-cutlery"></i> Món ăn <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
@@ -59,10 +52,11 @@
                         </ul>
                     </li>
 
-                    <a><i class="fa fa-building-o"></i> Thực đơn <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                        <li><a href="{{ URL::to('/admin/menu-management') }}">Quản lý thực đơn</a></li>
-                    </ul>
+                    <li>
+                        <a><i class="fa fa-building-o"></i> Thực đơn <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="{{ URL::to('/admin/menu-management') }}">Quản lý thực đơn</a></li>
+                        </ul>
                     </li>
 
                     <li>
