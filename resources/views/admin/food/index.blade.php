@@ -9,15 +9,9 @@
     <div class="row">
         <div class="col-12">
             <h1 class="text-center mb-5">QUẢN LÝ MÓN ĂN</h1>
-            <div class="row d-flex flex-row justify-content-between m-3">
-                <div class="searh-box ">
-                    <label for="search" class="mr-1" style="font-size: 20px">Nhập tên: </label>
-                    <input type="text" name="search" id="search" class="" style="font-size: 20px">
-                    <button type="submit" class="btn btn-primary">Tìm kiếm</button>
-                </div>
-
+            <div class="row d-flex flex-row justify-content-between m-2">
                 <div class="add-account-box">
-                    <a href="{{ route('createFood') }}" class="btn btn-primary" id="add-account-admin">Thêm món ăn</a>
+                    <a href="{{ route('create-food') }}" class="btn btn-primary" id="add-account-admin">Thêm món ăn</a>
                 </div>
             </div>
             <div class="status">

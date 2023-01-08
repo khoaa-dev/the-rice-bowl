@@ -16,7 +16,7 @@
             <div class="card">
                 <div class="card-header">
                     <h4 class="d-flex justify-content-between"> Thêm món ăn
-                        <a href="{{ route('foodManagement') }}" class="btn btn-primary float-end">Trở lại trang trước</a>
+                        <a href="{{ route('food-management') }}" class="btn btn-primary float-end">Trở lại trang trước</a>
                     </h4>
                 </div>
                 <div class="card-body" style="font-size: 20px">
@@ -27,6 +27,7 @@
                             <label for="name">Tên món ăn:</label>
                             <input type="text" name="name" id="name" class="form-control">
                         </div>
+
                         <div class="form-group">
                             <label for="price">Giá:</label>
                             <input type="number" name="price" id="price" class="form-control">
@@ -36,6 +37,7 @@
                             <label for="image">Hình ảnh:</label>
                             <input type="file" name="image" id="image" class="form-control">
                         </div>
+
                         <div class="form-group">
                             <label for="categoryId">Chọn danh mục:</label>
                             <select name="categoryId" id="categoryId" class="custom-select">
@@ -44,8 +46,8 @@
 
                                 @endforeach
                             </select>
-
                         </div>
+
                         <div class="form-group d-flex justify-content-end">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
                             <button type="submit" class="btn btn-primary">Thêm món ăn</button>

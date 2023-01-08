@@ -16,7 +16,7 @@
             <div class="card">
                 <div class="card-header">
                     <h4 class="d-flex justify-content-between"> Chỉnh sửa món ăn
-                        <a href="{{ route('foodManagement') }}" class="btn btn-primary float-end">Trở lại trang trước</a>
+                        <a href="{{ route('food-management') }}" class="btn btn-primary float-end">Trở lại trang trước</a>
                     </h4>
                 </div>
                 <div class="card-body" style="font-size: 20px">
