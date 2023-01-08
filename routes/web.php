@@ -15,6 +15,7 @@ use App\Http\Controllers\client\AddressController;
 
 use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\FoodController as AdminFoodController;
+use App\Http\Controllers\Admin\UserController as AdminAccountController;
 use App\Http\Controllers\Admin\MenuController as AdminMenuController;
 use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 use App\Http\Controllers\Admin\ServiceController as AdminServiceController;
@@ -213,5 +214,13 @@ Route::prefix('admin')->group(function () {
         Route::post('/update-service/{id}', [AdminServiceController::class, 'update'])->name('update-service');
 
         Route::get('/delete-service/{id}', [AdminServiceController::class, 'destroy']);
+
+        // Account Management
+        Route::get('/accounts', [AdminAccountController::class, 'index']);
+        
+        Route::get('/accounts/{id}', [AdminAccountController::class, 'show']);
+        
+        Route::post('/accounts/{id}', [AdminAccountController::class, 'update']);
+        
     });
 });

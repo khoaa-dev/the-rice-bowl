@@ -14,7 +14,8 @@
         <!-- menu profile quick info -->
         <div class="profile clearfix">
             <div class="profile_pic">
-                <img src="{{ asset('public/front-end/images/' . Auth::user()->avatarUrl) }}" alt="..." class="img-circle profile_img">
+                <img src="{{ asset('public/front-end/images/' . Auth::user()->avatarUrl) }}" alt="..."
+                    class="img-circle profile_img">
             </div>
             <div class="profile_info">
                 <span style="font-style: italic !important; font-size: 16px !important;">Xin chào,</span>
@@ -69,7 +70,7 @@
                     <li>
                         <a><i class="fa fa-group"></i> Thành viên <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="#">Quản lý thành viên</a></li>
+                            <li><a href="{{URL::to('/admin/accounts')}}">Quản lý thành viên</a></li>
                         </ul>
                     </li>
                     <div style="display: none">
@@ -113,7 +114,8 @@
                             <li><a href="{{ url('admin/profile') }}" class="nav-link">Profile</a></li>
                         </ul>
                     </li>
-                    <li><a href="javascript:void(0)"><i class="fa fa-laptop"></i> Landing Page <span class="label label-success pull-right">Coming Soon</span></a></li>
+                    <li><a href="javascript:void(0)"><i class="fa fa-laptop"></i> Landing Page <span
+                                class="label label-success pull-right">Coming Soon</span></a></li>
                 </ul>
             </div>
 
