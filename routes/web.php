@@ -19,6 +19,7 @@ use App\Http\Controllers\Admin\UserController as AdminAccountController;
 use App\Http\Controllers\Admin\MenuController as AdminMenuController;
 use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 use App\Http\Controllers\Admin\ServiceController as AdminServiceController;
+use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 
 
 /*
@@ -217,10 +218,14 @@ Route::prefix('admin')->group(function () {
 
         // Account Management
         Route::get('/accounts', [AdminAccountController::class, 'index']);
-        
+
         Route::get('/accounts/{id}', [AdminAccountController::class, 'show']);
-        
+
         Route::post('/accounts/{id}', [AdminAccountController::class, 'update']);
-        
+
+        //information restaurant
+        Route::get('information', [AdminHomeController::class, 'show']);
+
+        Route::post('information/update/{id}',  [AdminHomeController::class, 'update']);
     });
 });

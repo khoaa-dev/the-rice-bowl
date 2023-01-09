@@ -35,7 +35,7 @@
                     <li>
                         <a><i class="fa fa-book"></i> Thông tin nhà hàng <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="#">Thông tin</a></li>
+                            <li><a href="{{ url('admin/information') }}">Thông tin</a></li>
                         </ul>
                     </li>
 
