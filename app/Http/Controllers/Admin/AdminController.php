@@ -45,9 +45,9 @@ class AdminController extends Controller
         $orders = DB::table('orders')
                     ->join('order_food', 'orders.id', '=', 'order_food.orderId')
                     ->join('food', 'order_food.foodId', '=', 'food.id')
-                    ->whereBetween('orders.updated_at', [$from_date, $to_date])
-                    ->select(DB::raw('SUM(food.price * "peopleNumber") AS revenue'), 'orders.updated_at')
-                    ->groupBy('orders.updated_at')
+                    ->whereBetween(DB::raw('cast(orders.updated_at as date)'), [$from_date, $to_date])
+                    ->select(DB::raw('SUM(food.price * "peopleNumber") AS revenue'), DB::raw('cast(orders.updated_at as date)'))
+                    ->groupBy(DB::raw('cast(orders.updated_at as date)'))
                     ->get();
 
         $chart_data = new Collection();
